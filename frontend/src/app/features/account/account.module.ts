@@ -37,6 +37,9 @@ import { AboutAddBtnComponent } from './components/add-btn/about-add-btn/about-a
 import { AccountRoutingModule } from './account.routing';
 import { AccountComponent } from './account.component';
 import { AboutEditBtnComponent } from './components/edit-btn/about-edit-btn/about-edit-btn.component';
+import { BaseInquiryFormComponent } from './components/base-inquiry-form/base-inquiry-form.component';
+import { BaseInquiryComponent } from './../account/pages/base-inquiry/base-inquiry.component';
+import { BaseConnectComponent } from './../account/pages/base-connect/base-connect.component';
 
 
 @NgModule({
@@ -47,6 +50,10 @@ import { AboutEditBtnComponent } from './components/edit-btn/about-edit-btn/abou
   ],
   declarations: [
     AccountComponent,
+    BaseConnectComponent,
+    BaseInquiryComponent,
+    BaseInquiryFormComponent,
+    // add butttons
     AboutAddBtnComponent,
     BasicInfoAddBtnComponent,
     EducationAddBtnComponent,
@@ -57,6 +64,7 @@ import { AboutEditBtnComponent } from './components/edit-btn/about-edit-btn/abou
     StudyAbroadAddBtnComponent,
     StudyInterestAddBtnComponent,
     WorkAddBtnComponent,
+    // edit buttons
     AboutEditBtnComponent,
     BasicInfoEditBtnComponent,
     GoalEditBtnComponent,
@@ -68,6 +76,7 @@ import { AboutEditBtnComponent } from './components/edit-btn/about-edit-btn/abou
     StudyInterestEditBtnComponent,
     WorkEditBtnComponent,
     WorkEducationEditBtnComponent,
+    // modals
     AboutModalComponent,
     BasicInfoModalComponent,
     EducationModalComponent,
@@ -83,6 +92,10 @@ import { AboutEditBtnComponent } from './components/edit-btn/about-edit-btn/abou
   ],
   exports: [
     AccountComponent,
+    BaseConnectComponent,
+    BaseInquiryComponent,
+    BaseInquiryFormComponent,
+    // add butttons
     AboutAddBtnComponent,
     BasicInfoAddBtnComponent,
     EducationAddBtnComponent,
@@ -93,6 +106,7 @@ import { AboutEditBtnComponent } from './components/edit-btn/about-edit-btn/abou
     StudyAbroadAddBtnComponent,
     StudyInterestAddBtnComponent,
     WorkAddBtnComponent,
+    // edit buttons
     AboutEditBtnComponent,
     BasicInfoEditBtnComponent,
     GoalEditBtnComponent,
@@ -104,6 +118,7 @@ import { AboutEditBtnComponent } from './components/edit-btn/about-edit-btn/abou
     StudyInterestEditBtnComponent,
     WorkEditBtnComponent,
     WorkEducationEditBtnComponent,
+    // modals
     AboutModalComponent,
     BasicInfoModalComponent,
     EducationModalComponent,

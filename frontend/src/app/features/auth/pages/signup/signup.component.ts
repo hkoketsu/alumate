@@ -18,6 +18,6 @@ export class SignupComponent implements OnInit {
   }
 
   navigateToHome() {
-    this.router.navigateByUrl('/auth/base-inquiry');
+    this.router.navigateByUrl('/account/base-inquiry');
   }
 }

@@ -13,6 +13,7 @@ export class NavbarAuthComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private authService: AuthService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -27,6 +28,8 @@ export class NavbarAuthComponent implements OnInit {
   }
 
   logout() {
+    console.log('log out');
     this.authService.logout();
+    this.router.navigateByUrl('/');
   }
 }

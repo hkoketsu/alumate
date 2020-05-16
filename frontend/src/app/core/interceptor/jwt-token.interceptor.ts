@@ -1,4 +1,3 @@
-import { AuthService } from './../../features/auth/services/auth.service';
 import { Injectable } from '@angular/core';
 import {
   HttpRequest,
@@ -10,16 +9,21 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { TokenService } from 'src/app/features/auth/services/token.service';
+import { AuthService } from 'src/app/features/auth/services/auth.service';
 
 @Injectable()
 export class JwtTokenInterceptor implements HttpInterceptor {
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private tokenService: TokenService,
+  ) {}
 
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const token = this.authService.getAccessToken();
+    const token = this.tokenService.getAccessToken();
     if (token) {
       request = request.clone({
         setHeaders: {
@@ -28,13 +32,15 @@ export class JwtTokenInterceptor implements HttpInterceptor {
       });
     }
     return next.handle(request).pipe(
-      tap((res) => {
-        if (res instanceof HttpResponse) {
-          if (res.status === 401 && this.authService.authenticate()) {
-            this.authService.refreshJwtSession();
+      tap(
+        (res) => {},
+        (err) => {
+          if (err.status === 401 && this.authService.authenticate()) {
+            console.log('refresh token');
+            this.tokenService.refreshAccessToken();
           }
         }
-      })
+      )
     );
   }
 }

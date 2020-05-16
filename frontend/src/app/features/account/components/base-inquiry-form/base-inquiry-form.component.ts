@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -13,7 +14,9 @@ export class BaseInquiryFormComponent implements OnInit {
   form: FormGroup;
 
   statusChoices: CurrentStatus[];
-  countryChoices: Country[];
+
+  homeCountryOptions: Observable<Country[]>;
+  studyAbroadCountryOptions: Observable<Country[]>;
 
   constructor(
     private fb: FormBuilder,
@@ -23,7 +26,7 @@ export class BaseInquiryFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.statusChoices = this.accountService.getStatusOptions();
-    this.countryChoices = this.accountService.getCountryOptions();
+
     this.form = this.fb.group({
       name: [''],
       status: [],

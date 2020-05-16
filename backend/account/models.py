@@ -3,7 +3,8 @@ import datetime
 from datetime import date
 from django.utils.translation import gettext_lazy as _
 from django_resized import ResizedImageField
-from alumate_api.settings import AUTH_USER_MODEL as User
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 current_year = date.today().year
 

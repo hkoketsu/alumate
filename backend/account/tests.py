@@ -2,7 +2,8 @@ from django.test import TestCase
 from rest_framework import status
 from . import models, views
 from django.urls import reverse
-from alumate_api.settings import AUTH_USER_MODEL as User
+from django.contrib.auth import get_user_model
+User = get_user_model()
 from alumate_api.test import get_auth_client
 import tempfile
 

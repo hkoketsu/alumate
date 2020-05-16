@@ -1,7 +1,8 @@
 from django.db import models
 from account.models import School, Country, Major, BasicInfo, City
 from django.urls import reverse
-from alumate_api.settings import AUTH_USER_MODEL as User
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')

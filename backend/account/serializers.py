@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from . import models
-from alumate_api.settings import AUTH_USER_MODEL as User
-
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 class AboutSerializer(serializers.ModelSerializer):
     user = serializers.HiddenField(

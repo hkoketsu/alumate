@@ -1,0 +1,26 @@
+<div class="text-center pb-3 border-bottom">
+  <h3 mat-dialog-title class="text-muted my-0">New Message</h3>
+</div>
+
+<mat-dialog-content [formGroup]="form">
+  <mat-form-field>
+    <mat-label>To</mat-label>
+    <mat-select formControlName="receiver" required>
+      <mat-option>--</mat-option>
+      <mat-option *ngFor="let user of userOptions" [value]="user">
+        {{ user.username }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Message</mat-label>
+    <textarea matNativeControl formControlName="body" rows="8" required></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+
+<div mat-dialog-actions class="d-flex justify-content-center mb-4">
+  <button mat-raised-button color="primary" (click)="sendMessage()">Send Message</button>
+  <button mat-raised-button color="basic" (click)="cancel()">Cancel</button>
+</div>
+

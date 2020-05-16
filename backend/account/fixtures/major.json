@@ -1,0 +1,747 @@
+[
+  { "model": "account.major", "pk": 1, "fields": { "name": "Major" } },
+  {
+    "model": "account.major",
+    "pk": 2,
+    "fields": { "name": "General Agriculture" }
+  },
+  {
+    "model": "account.major",
+    "pk": 3,
+    "fields": { "name": "Agriculture Production And Management" }
+  },
+  {
+    "model": "account.major",
+    "pk": 4,
+    "fields": { "name": "Agricultural Economics" }
+  },
+  {
+    "model": "account.major",
+    "pk": 5,
+    "fields": { "name": "Animal Sciences" }
+  },
+  { "model": "account.major", "pk": 6, "fields": { "name": "Food Science" } },
+  {
+    "model": "account.major",
+    "pk": 7,
+    "fields": { "name": "Plant Science And Agronomy" }
+  },
+  { "model": "account.major", "pk": 8, "fields": { "name": "Soil Science" } },
+  {
+    "model": "account.major",
+    "pk": 9,
+    "fields": { "name": "Miscellaneous Agriculture" }
+  },
+  { "model": "account.major", "pk": 10, "fields": { "name": "Forestry" } },
+  {
+    "model": "account.major",
+    "pk": 11,
+    "fields": { "name": "Natural Resources Management" }
+  },
+  { "model": "account.major", "pk": 12, "fields": { "name": "Fine Arts" } },
+  {
+    "model": "account.major",
+    "pk": 13,
+    "fields": { "name": "Drama And Theater Arts" }
+  },
+  { "model": "account.major", "pk": 14, "fields": { "name": "Music" } },
+  {
+    "model": "account.major",
+    "pk": 15,
+    "fields": { "name": "Visual And Performing Arts" }
+  },
+  {
+    "model": "account.major",
+    "pk": 16,
+    "fields": { "name": "Commercial Art And Graphic Design" }
+  },
+  {
+    "model": "account.major",
+    "pk": 17,
+    "fields": { "name": "Film Video And Photographic Arts" }
+  },
+  { "model": "account.major", "pk": 18, "fields": { "name": "Studio Arts" } },
+  {
+    "model": "account.major",
+    "pk": 19,
+    "fields": { "name": "Miscellaneous Fine Arts" }
+  },
+  {
+    "model": "account.major",
+    "pk": 20,
+    "fields": { "name": "Environmental Science" }
+  },
+  { "model": "account.major", "pk": 21, "fields": { "name": "Biology" } },
+  {
+    "model": "account.major",
+    "pk": 22,
+    "fields": { "name": "Biochemical Sciences" }
+  },
+  { "model": "account.major", "pk": 23, "fields": { "name": "Botany" } },
+  {
+    "model": "account.major",
+    "pk": 24,
+    "fields": { "name": "Molecular Biology" }
+  },
+  { "model": "account.major", "pk": 25, "fields": { "name": "Ecology" } },
+  { "model": "account.major", "pk": 26, "fields": { "name": "Genetics" } },
+  { "model": "account.major", "pk": 27, "fields": { "name": "Microbiology" } },
+  { "model": "account.major", "pk": 28, "fields": { "name": "Pharmacology" } },
+  { "model": "account.major", "pk": 29, "fields": { "name": "Physiology" } },
+  { "model": "account.major", "pk": 30, "fields": { "name": "Zoology" } },
+  { "model": "account.major", "pk": 31, "fields": { "name": "Neuroscience" } },
+  {
+    "model": "account.major",
+    "pk": 32,
+    "fields": { "name": "Miscellaneous Biology" }
+  },
+  {
+    "model": "account.major",
+    "pk": 33,
+    "fields": { "name": "Cognitive Science And Biopsychology" }
+  },
+  {
+    "model": "account.major",
+    "pk": 34,
+    "fields": { "name": "General Business" }
+  },
+  { "model": "account.major", "pk": 35, "fields": { "name": "Accounting" } },
+  {
+    "model": "account.major",
+    "pk": 36,
+    "fields": { "name": "Actuarial Science" }
+  },
+  {
+    "model": "account.major",
+    "pk": 37,
+    "fields": { "name": "Business Management And Administration" }
+  },
+  {
+    "model": "account.major",
+    "pk": 38,
+    "fields": { "name": "Operations Logistics And E-Commerce" }
+  },
+  {
+    "model": "account.major",
+    "pk": 39,
+    "fields": { "name": "Business Economics" }
+  },
+  {
+    "model": "account.major",
+    "pk": 40,
+    "fields": { "name": "Marketing And Marketing Research" }
+  },
+  { "model": "account.major", "pk": 41, "fields": { "name": "Finance" } },
+  {
+    "model": "account.major",
+    "pk": 42,
+    "fields": { "name": "Human Resources And Personnel Management" }
+  },
+  {
+    "model": "account.major",
+    "pk": 43,
+    "fields": { "name": "International Business" }
+  },
+  {
+    "model": "account.major",
+    "pk": 44,
+    "fields": { "name": "Hospitality Management" }
+  },
+  {
+    "model": "account.major",
+    "pk": 45,
+    "fields": { "name": "Management Information Systems And Statistics" }
+  },
+  {
+    "model": "account.major",
+    "pk": 46,
+    "fields": { "name": "Miscellaneous Business & Medical Administration" }
+  },
+  {
+    "model": "account.major",
+    "pk": 47,
+    "fields": { "name": "Communications" }
+  },
+  { "model": "account.major", "pk": 48, "fields": { "name": "Journalism" } },
+  { "model": "account.major", "pk": 49, "fields": { "name": "Mass Media" } },
+  {
+    "model": "account.major",
+    "pk": 50,
+    "fields": { "name": "Advertising And Public Relations" }
+  },
+  {
+    "model": "account.major",
+    "pk": 51,
+    "fields": { "name": "Communication Technologies" }
+  },
+  {
+    "model": "account.major",
+    "pk": 52,
+    "fields": { "name": "Computer And Information Systems" }
+  },
+  {
+    "model": "account.major",
+    "pk": 53,
+    "fields": { "name": "Computer Programming And Data Processing" }
+  },
+  {
+    "model": "account.major",
+    "pk": 54,
+    "fields": { "name": "Computer Science" }
+  },
+  {
+    "model": "account.major",
+    "pk": 55,
+    "fields": { "name": "Information Sciences" }
+  },
+  {
+    "model": "account.major",
+    "pk": 56,
+    "fields": { "name": "Computer Administration Management And Security" }
+  },
+  {
+    "model": "account.major",
+    "pk": 57,
+    "fields": { "name": "Computer Networking And Telecommunications" }
+  },
+  { "model": "account.major", "pk": 58, "fields": { "name": "Mathematics" } },
+  {
+    "model": "account.major",
+    "pk": 59,
+    "fields": { "name": "Applied Mathematics" }
+  },
+  {
+    "model": "account.major",
+    "pk": 60,
+    "fields": { "name": "Statistics And Decision Science" }
+  },
+  {
+    "model": "account.major",
+    "pk": 61,
+    "fields": { "name": "Mathematics And Computer Science" }
+  },
+  {
+    "model": "account.major",
+    "pk": 62,
+    "fields": { "name": "General Education" }
+  },
+  {
+    "model": "account.major",
+    "pk": 63,
+    "fields": { "name": "Educational Administration And Supervision" }
+  },
+  {
+    "model": "account.major",
+    "pk": 64,
+    "fields": { "name": "School Student Counseling" }
+  },
+  {
+    "model": "account.major",
+    "pk": 65,
+    "fields": { "name": "Elementary Education" }
+  },
+  {
+    "model": "account.major",
+    "pk": 66,
+    "fields": { "name": "Mathematics Teacher Education" }
+  },
+  {
+    "model": "account.major",
+    "pk": 67,
+    "fields": { "name": "Physical And Health Education Teaching" }
+  },
+  {
+    "model": "account.major",
+    "pk": 68,
+    "fields": { "name": "Early Childhood Education" }
+  },
+  {
+    "model": "account.major",
+    "pk": 69,
+    "fields": { "name": "Science And Computer Teacher Education" }
+  },
+  {
+    "model": "account.major",
+    "pk": 70,
+    "fields": { "name": "Secondary Teacher Education" }
+  },
+  {
+    "model": "account.major",
+    "pk": 71,
+    "fields": { "name": "Special Needs Education" }
+  },
+  {
+    "model": "account.major",
+    "pk": 72,
+    "fields": { "name": "Social Science Or History Teacher Education" }
+  },
+  {
+    "model": "account.major",
+    "pk": 73,
+    "fields": { "name": "Teacher Education: Multiple Levels" }
+  },
+  {
+    "model": "account.major",
+    "pk": 74,
+    "fields": { "name": "Language And Drama Education" }
+  },
+  {
+    "model": "account.major",
+    "pk": 75,
+    "fields": { "name": "Art And Music Education" }
+  },
+  {
+    "model": "account.major",
+    "pk": 76,
+    "fields": { "name": "Miscellaneous Education" }
+  },
+  {
+    "model": "account.major",
+    "pk": 77,
+    "fields": { "name": "Library Science" }
+  },
+  { "model": "account.major", "pk": 78, "fields": { "name": "Architecture" } },
+  {
+    "model": "account.major",
+    "pk": 79,
+    "fields": { "name": "General Engineering" }
+  },
+  {
+    "model": "account.major",
+    "pk": 80,
+    "fields": { "name": "Aerospace Engineering" }
+  },
+  {
+    "model": "account.major",
+    "pk": 81,
+    "fields": { "name": "Biological Engineering" }
+  },
+  {
+    "model": "account.major",
+    "pk": 82,
+    "fields": { "name": "Architectural Engineering" }
+  },
+  {
+    "model": "account.major",
+    "pk": 83,
+    "fields": { "name": "Biomedical Engineering" }
+  },
+  {
+    "model": "account.major",
+    "pk": 84,
+    "fields": { "name": "Chemical Engineering" }
+  },
+  {
+    "model": "account.major",
+    "pk": 85,
+    "fields": { "name": "Civil Engineering" }
+  },
+  {
+    "model": "account.major",
+    "pk": 86,
+    "fields": { "name": "Computer Engineering" }
+  },
+  {
+    "model": "account.major",
+    "pk": 87,
+    "fields": { "name": "Electrical Engineering" }
+  },
+  {
+    "model": "account.major",
+    "pk": 88,
+    "fields": { "name": "Engineering Mechanics Physics And Science" }
+  },
+  {
+    "model": "account.major",
+    "pk": 89,
+    "fields": { "name": "Environmental Engineering" }
+  },
+  {
+    "model": "account.major",
+    "pk": 90,
+    "fields": { "name": "Geological And Geophysical Engineering" }
+  },
+  {
+    "model": "account.major",
+    "pk": 91,
+    "fields": { "name": "Industrial And Manufacturing Engineering" }
+  },
+  {
+    "model": "account.major",
+    "pk": 92,
+    "fields": { "name": "Materials Engineering And Materials Science" }
+  },
+  {
+    "model": "account.major",
+    "pk": 93,
+    "fields": { "name": "Mechanical Engineering" }
+  },
+  {
+    "model": "account.major",
+    "pk": 94,
+    "fields": { "name": "Metallurgical Engineering" }
+  },
+  {
+    "model": "account.major",
+    "pk": 95,
+    "fields": { "name": "Mining And Mineral Engineering" }
+  },
+  {
+    "model": "account.major",
+    "pk": 96,
+    "fields": { "name": "Naval Architecture And Marine Engineering" }
+  },
+  {
+    "model": "account.major",
+    "pk": 97,
+    "fields": { "name": "Nuclear Engineering" }
+  },
+  {
+    "model": "account.major",
+    "pk": 98,
+    "fields": { "name": "Petroleum Engineering" }
+  },
+  {
+    "model": "account.major",
+    "pk": 99,
+    "fields": { "name": "Miscellaneous Engineering" }
+  },
+  {
+    "model": "account.major",
+    "pk": 100,
+    "fields": { "name": "Engineering Technologies" }
+  },
+  {
+    "model": "account.major",
+    "pk": 101,
+    "fields": { "name": "Engineering And Industrial Management" }
+  },
+  {
+    "model": "account.major",
+    "pk": 102,
+    "fields": { "name": "Electrical Engineering Technology" }
+  },
+  {
+    "model": "account.major",
+    "pk": 103,
+    "fields": { "name": "Industrial Production Technologies" }
+  },
+  {
+    "model": "account.major",
+    "pk": 104,
+    "fields": { "name": "Mechanical Engineering Related Technologies" }
+  },
+  {
+    "model": "account.major",
+    "pk": 105,
+    "fields": { "name": "Miscellaneous Engineering Technologies" }
+  },
+  {
+    "model": "account.major",
+    "pk": 106,
+    "fields": { "name": "Materials Science" }
+  },
+  {
+    "model": "account.major",
+    "pk": 107,
+    "fields": { "name": "Nutrition Sciences" }
+  },
+  {
+    "model": "account.major",
+    "pk": 108,
+    "fields": { "name": "General Medical And Health Services" }
+  },
+  {
+    "model": "account.major",
+    "pk": 109,
+    "fields": { "name": "Communication Disorders Sciences And Services" }
+  },
+  {
+    "model": "account.major",
+    "pk": 110,
+    "fields": { "name": "Health And Medical Administrative Services" }
+  },
+  {
+    "model": "account.major",
+    "pk": 111,
+    "fields": { "name": "Medical Assisting Services" }
+  },
+  {
+    "model": "account.major",
+    "pk": 112,
+    "fields": { "name": "Medical Technologies Technicians" }
+  },
+  {
+    "model": "account.major",
+    "pk": 113,
+    "fields": { "name": "Health And Medical Preparatory Programs" }
+  },
+  { "model": "account.major", "pk": 114, "fields": { "name": "Nursing" } },
+  {
+    "model": "account.major",
+    "pk": 115,
+    "fields": { "name": "Pharmacy Pharmaceutical Sciences And Administration" }
+  },
+  {
+    "model": "account.major",
+    "pk": 116,
+    "fields": { "name": "Treatment Therapy Professions" }
+  },
+  {
+    "model": "account.major",
+    "pk": 117,
+    "fields": { "name": "Community And Public Health" }
+  },
+  {
+    "model": "account.major",
+    "pk": 118,
+    "fields": { "name": "Miscellaneous Health Medical Professions" }
+  },
+  {
+    "model": "account.major",
+    "pk": 119,
+    "fields": { "name": "Area Ethnic And Civilization Studies" }
+  },
+  {
+    "model": "account.major",
+    "pk": 120,
+    "fields": { "name": "Linguistics And Comparative Language And Literature" }
+  },
+  {
+    "model": "account.major",
+    "pk": 121,
+    "fields": {
+      "name": "French German Latin And Other Common Foreign Language Studies"
+    }
+  },
+  {
+    "model": "account.major",
+    "pk": 122,
+    "fields": { "name": "Other Foreign Languages" }
+  },
+  {
+    "model": "account.major",
+    "pk": 123,
+    "fields": { "name": "English Language And Literature" }
+  },
+  {
+    "model": "account.major",
+    "pk": 124,
+    "fields": { "name": "Composition And Rhetoric" }
+  },
+  {
+    "model": "account.major",
+    "pk": 125,
+    "fields": { "name": "Liberal Arts" }
+  },
+  { "model": "account.major", "pk": 126, "fields": { "name": "Humanities" } },
+  {
+    "model": "account.major",
+    "pk": 127,
+    "fields": { "name": "Intercultural And International Studies" }
+  },
+  {
+    "model": "account.major",
+    "pk": 128,
+    "fields": { "name": "Philosophy And Religious Studies" }
+  },
+  {
+    "model": "account.major",
+    "pk": 129,
+    "fields": { "name": "Theology And Religious Vocations" }
+  },
+  {
+    "model": "account.major",
+    "pk": 130,
+    "fields": { "name": "Anthropology And Archeology" }
+  },
+  {
+    "model": "account.major",
+    "pk": 131,
+    "fields": { "name": "Art History And Criticism" }
+  },
+  { "model": "account.major", "pk": 132, "fields": { "name": "History" } },
+  {
+    "model": "account.major",
+    "pk": 133,
+    "fields": { "name": "United States History" }
+  },
+  {
+    "model": "account.major",
+    "pk": 134,
+    "fields": { "name": "Cosmetology Services And Culinary Arts" }
+  },
+  {
+    "model": "account.major",
+    "pk": 135,
+    "fields": { "name": "Family And Consumer Sciences" }
+  },
+  {
+    "model": "account.major",
+    "pk": 136,
+    "fields": { "name": "Military Technologies" }
+  },
+  {
+    "model": "account.major",
+    "pk": 137,
+    "fields": { "name": "Physical Fitness Parks Recreation And Leisure" }
+  },
+  {
+    "model": "account.major",
+    "pk": 138,
+    "fields": { "name": "Construction Services" }
+  },
+  {
+    "model": "account.major",
+    "pk": 139,
+    "fields": {
+      "name": "Electrical, Mechanical, And Precision Technologies And Production"
+    }
+  },
+  {
+    "model": "account.major",
+    "pk": 140,
+    "fields": { "name": "Transportation Sciences And Technologies" }
+  },
+  {
+    "model": "account.major",
+    "pk": 141,
+    "fields": { "name": "Multi/Interdisciplinary Studies" }
+  },
+  {
+    "model": "account.major",
+    "pk": 142,
+    "fields": { "name": "Court Reporting" }
+  },
+  {
+    "model": "account.major",
+    "pk": 143,
+    "fields": { "name": "Pre-Law And Legal Studies" }
+  },
+  {
+    "model": "account.major",
+    "pk": 144,
+    "fields": { "name": "Criminal Justice And Fire Protection" }
+  },
+  {
+    "model": "account.major",
+    "pk": 145,
+    "fields": { "name": "Public Administration" }
+  },
+  {
+    "model": "account.major",
+    "pk": 146,
+    "fields": { "name": "Public Policy" }
+  },
+  {
+    "model": "account.major",
+    "pk": 147,
+    "fields": { "name": "N/A (Less Than Bachelor'S Degree)" }
+  },
+  {
+    "model": "account.major",
+    "pk": 148,
+    "fields": { "name": "Physical Sciences" }
+  },
+  {
+    "model": "account.major",
+    "pk": 149,
+    "fields": { "name": "Astronomy And Astrophysics" }
+  },
+  {
+    "model": "account.major",
+    "pk": 150,
+    "fields": { "name": "Atmospheric Sciences And Meteorology" }
+  },
+  { "model": "account.major", "pk": 151, "fields": { "name": "Chemistry" } },
+  {
+    "model": "account.major",
+    "pk": 152,
+    "fields": { "name": "Geology And Earth Science" }
+  },
+  { "model": "account.major", "pk": 153, "fields": { "name": "Geosciences" } },
+  {
+    "model": "account.major",
+    "pk": 154,
+    "fields": { "name": "Oceanography" }
+  },
+  { "model": "account.major", "pk": 155, "fields": { "name": "Physics" } },
+  {
+    "model": "account.major",
+    "pk": 156,
+    "fields": { "name": "Multi-Disciplinary Or General Science" }
+  },
+  {
+    "model": "account.major",
+    "pk": 157,
+    "fields": {
+      "name": "Nuclear, Industrial Radiology, And Biological Technologies"
+    }
+  },
+  { "model": "account.major", "pk": 158, "fields": { "name": "Psychology" } },
+  {
+    "model": "account.major",
+    "pk": 159,
+    "fields": { "name": "Educational Psychology" }
+  },
+  {
+    "model": "account.major",
+    "pk": 160,
+    "fields": { "name": "Clinical Psychology" }
+  },
+  {
+    "model": "account.major",
+    "pk": 161,
+    "fields": { "name": "Counseling Psychology" }
+  },
+  {
+    "model": "account.major",
+    "pk": 162,
+    "fields": { "name": "Industrial And Organizational Psychology" }
+  },
+  {
+    "model": "account.major",
+    "pk": 163,
+    "fields": { "name": "Social Psychology" }
+  },
+  {
+    "model": "account.major",
+    "pk": 164,
+    "fields": { "name": "Miscellaneous Psychology" }
+  },
+  {
+    "model": "account.major",
+    "pk": 165,
+    "fields": { "name": "Human Services And Community Organization" }
+  },
+  { "model": "account.major", "pk": 166, "fields": { "name": "Social Work" } },
+  {
+    "model": "account.major",
+    "pk": 167,
+    "fields": { "name": "Interdisciplinary Social Sciences" }
+  },
+  {
+    "model": "account.major",
+    "pk": 168,
+    "fields": { "name": "General Social Sciences" }
+  },
+  { "model": "account.major", "pk": 169, "fields": { "name": "Economics" } },
+  { "model": "account.major", "pk": 170, "fields": { "name": "Criminology" } },
+  { "model": "account.major", "pk": 171, "fields": { "name": "Geography" } },
+  {
+    "model": "account.major",
+    "pk": 172,
+    "fields": { "name": "International Relations" }
+  },
+  {
+    "model": "account.major",
+    "pk": 173,
+    "fields": { "name": "Political Science And Government" }
+  },
+  { "model": "account.major", "pk": 174, "fields": { "name": "Sociology" } },
+  {
+    "model": "account.major",
+    "pk": 175,
+    "fields": { "name": "Miscellaneous Social Sciences" }
+  }
+]

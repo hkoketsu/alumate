@@ -1,0 +1,132 @@
+.list-name {
+  font-size: .9rem;
+  font-family: inherit;
+  font-weight: 600;
+  /* line-height: 1.5; */
+  color: #32325d;
+}
+
+.list-image {
+  width: 1rem;
+}
+
+.list-uni {
+  font-size: .9rem;
+  font-family: inherit;
+  font-weight: 400;
+  /* line-height: 1.5; */
+  color: #5e72e4;
+}
+
+.list-major {
+  font-size: .9rem;
+  font-family: inherit;
+  font-weight: 400;
+  /* line-height: 1.5; */
+  color: #8898aa;
+}
+
+.list-border {
+  border-bottom: .0625rem solid rgba(0, 0, 0, .05);
+  display: block;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.status-border {
+  border-bottom: none;
+  display: block;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  margin-bottom: 1rem;
+}
+
+.card {
+  margin-bottom: 30px;
+  box-shadow: 0 1px 1px rgba(50, 50, 93, .1), 0 1px 1px rgba(0, 0, 0, .07);
+  border: 0;
+}
+
+/* image */
+.avatar-responsive {
+  /* xs */
+  /* width: 24px;
+  height: 24px;
+  font-size: .75rem; */
+  /* sm */
+  /* width: 36px;
+  height: 36px;
+  font-size: .875rem; */
+  /* md */
+  /* width: 48px;
+  height: 48px;
+  font-size: 1rem; */
+  /* lg */
+  /* width: 58px;
+  height: 58px; */
+  font-size: .875rem;
+  /* xl */
+  width: 58px;
+  height: 58px;
+
+}
+
+/* media */
+@media (min-width: 1200px) {}
+
+@media (min-width: 992px) {
+  .avatar-responsive {
+    width: 100px;
+    height: 100px;
+  }
+
+  .list-border {
+    border-bottom: none;
+    display: block;
+    padding-bottom: 0;
+    padding-top: 0;
+
+  }
+
+  .list-name {
+    font-size: calc(1.25rem * 0.875);
+    margin-bottom: calc(0.5rem * 0.875);
+    font-family: inherit;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #32325d;
+  }
+
+  .list-image {
+    width: 1.25rem;
+  }
+
+  .list-uni {
+    font-size: calc(1rem * 0.875);
+    font-family: inherit;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #32325d;
+  }
+
+  .list-major {
+    font-size: calc(1rem * 0.875);
+    font-family: inherit;
+    font-weight: 500;
+    /* line-height: 1.5; */
+    color: #8898aa;
+  }
+
+  .status-border {
+    border-bottom: .0625rem solid rgba(0, 0, 0, .05);
+    display: block;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    margin-bottom: 1rem;
+  }
+
+}
+
+@media (min-width: 768px) {}
+
+@media (min-width: 576px) {}

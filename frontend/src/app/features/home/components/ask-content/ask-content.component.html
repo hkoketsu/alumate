@@ -1,0 +1,28 @@
+<mat-card data-animation="zooming">
+  <mat-card-content>
+    <h4 class="card-category text-danger">
+      <i class="ni ni-badge"></i>
+      <span class="ml-1">School</span>
+    </h4>
+    <h3 class="card-title">
+      <a href="#">Title</a>
+    </h3>
+    <p class="card-description">Description</p>
+    <div class="author">
+      <!-- <img src={{ask.value.user.profile_image.image.url}} alt="..." class="avatar"> -->
+      <a routerLink="/account" class="mr-3">
+        <img src="assets/img/placeholder.png" alt="..." class="avatar">
+      </a>
+      <span>by Hiroki Koketsu</span>
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <app-like-btn></app-like-btn>
+
+    <!-- <a href="javascript:;">
+      <i class="ni ni-curved-next"></i>
+      <span class="text-muted">0</span>
+    </a> -->
+  </mat-card-actions>
+</mat-card>

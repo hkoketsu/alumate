@@ -1,0 +1,24 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <mat-error *ngIf="loginFailed" class="mb-3">
+    <div>Login failed. Please check your credentials.</div>
+  </mat-error>
+
+  <mat-form-field>
+    <mat-label>Email or username</mat-label>
+    <input matInput formControlName="emailOrUsername">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput formControlName="password" [type]="showPassword ? 'text' : 'password'">
+    <button mat-icon-button matSuffix (click)="showPassword = !showPassword"
+      [attr.aria-label]="'Hide password'" [attr.aria-pressed]="!showPassword">
+      <mat-icon>{{ showPassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary my-4">Sign in</button>
+  </div>
+</form>

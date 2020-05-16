@@ -1,0 +1,14 @@
+<div class="card-body mb-4" >
+  <div class="d-flex" style="margin-left:12px;">
+    <a routerLink="/account">
+      <img src="{{ profileImageUrl }}" class="avatar avatar-sm" *ngIf="profileImageUrl">
+    </a>
+    <div class="mx-3 mb-4">
+      <a routerLink="/account" class="h5 card-title">{{ message.sender.username }}</a>
+      <small class="d-block text-muted">{{ message.created_at }}</small>
+    </div>
+  </div>
+  <div style="margin-left: calc(48px + 1rem);margin-right: calc(48px + 1rem)">
+    <p class="card-text">{{ message.body }}</p>
+  </div>
+</div>

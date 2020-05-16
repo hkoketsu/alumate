@@ -1,0 +1,31 @@
+<div class="d-flex flex-row flex-lg-column justify-content-lg-center my-lg-4">
+  <div class="align-self-center mr-3 mr-lg-0 mb-lg-3">
+    <a href="">
+      <img src="{{ profileImage.imageUrl }}" class="img-fluid rounded-circle avatar-responsive">
+    </a>
+  </div>
+  <div class="align-self-lg-center mx-2 list-border">
+    <div class="list-name d-flex justify-content-lg-center align-content-center" *ngIf="basicInfo">
+      <span class="mr-2">{{ basicInfo.name }}</span>
+      <img src="{{ logoUrl }}" class="img-fluid rounded shadow my-auto" style="height: 20px; width: 20px;"
+        *ngIf="logoUrl">
+    </div>
+    <div class="text-muted font-weight-500 small d-none d-lg-flex justify-content-center" *ngIf="basicInfo">
+      from {{ basicInfo.homeCountry.name }} to {{ basicInfo.studyAbroadCountry.name }}
+    </div>
+    <div class="list-uni mb-0" *ngIf="education">{{ education.school }}</div>
+    <div class="list-major" *ngIf="education">{{ education.major }} <span class="text-muted font-weight-300">
+        <small>({{ education.startYear }} ~ {{ education.endYear }})</small></span>
+    </div>
+    <!-- living city -->
+    <!-- <div class="font-weight-400 d-none d-lg-block">
+        <i class="ni ni-pin-3 mr-2"></i>
+        Boston, U.S.
+    </div> -->
+  </div>
+  <div class="flex-grow-1 text-right text-lg-center list-border">
+    <button type="button" (click)="follow()" class="mt-lg-3 btn btn-outline-primary btn-sm btn-icon btn-round">
+      <span class="btn-inner--text"><i class="fa fa-plus mr-1"></i>{{ followed ? 'Followed' : 'Follow' }}</span>
+    </button>
+  </div>
+</div>

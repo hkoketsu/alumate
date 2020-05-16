@@ -1,0 +1,7 @@
+ng-select {
+  max-width: 220px;
+}
+
+::ng-deep app-slider-input > form {
+  max-width: 180px;
+}

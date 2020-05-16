@@ -1,0 +1,38 @@
+<header>
+  <app-navbar-auth></app-navbar-auth>
+</header>
+
+<main>
+  <section class="section mb-0 pt-4 bg-secondary" style="min-height: 100vh;">
+    <div class="container">
+      <!-- Header -->
+      <div class="row my-4">
+        <div class="col-sm-12 col-md-10 mx-auto">
+          <div class="card">
+            <!-- Header -->
+            <div class="card-header py-4">
+              <div class="d-flex">
+                <a href="">
+                  <img src="{{ profileImageUrl }}" class="avatar">
+                </a>
+                <a href="" class="mx-3 h3" *ngIf="senderBasicInfo">{{ senderBasicInfo.name }}</a>
+              </div>
+            </div>
+            <!-- Message -->
+            <div *ngFor="let message of messages">
+              <app-message-detail-section [message]="message"></app-message-detail-section>
+            </div>
+            <!-- Message form -->
+            <div class="card-body">
+              <div style="margin-left: calc(48px + 1rem);margin-right: calc(48px + 1rem)">
+                <div class="media-body">
+                  <app-message-detail-form></app-message-detail-form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

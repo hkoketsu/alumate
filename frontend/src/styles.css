@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.btn-transparent {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-feed-action {
+  text-decoration: none;
+  display: inline-block;
+  margin-right: .75rem;
+  font-size: .875rem;
+  color: #32325d;
+  padding: 0;
+}
+
+.btn-feed-action.active,
+.btn-feed-action:hover {
+  color: #5e72e4;
+}
+
+.btn-feed-action:focus {
+  outline: none;
+}
+
+.btn-feed-action > span {
+  margin-left: .1875rem;
+  font-weight: 600;
+}

@@ -1,0 +1,16 @@
+<div class="mb-4" *ngIf="searched">
+  <span class="text-primary mt-3" style="font-size: .9rem; font-weight: 600;">
+    {{ resultCount }} {{ resultCount | i18nPlural: pluralMapping }} found
+  </span>
+</div>
+
+<div class="row" *ngFor="let row of result">
+  <div class="col-6" *ngFor="let inquiry of row" >
+    <app-inquiry-card [inquiry]="inquiry"></app-inquiry-card>
+  </div>
+</div>
+ <div class="row">
+  <div class="ml-auto mr-auto my-5 text-center">
+    <button rel="tooltip" class="btn btn-primary btn-round btn-simple">Load more...</button>
+  </div>
+</div>

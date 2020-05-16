@@ -1,0 +1,24 @@
+<form>
+  <div class="media align-items-center mt-5">
+    <a routerLink="/account" class="mr-3">
+      <img src="{{ profileImageUrl }}" class="avatar avatar-lg rounded-circle mb-4">
+    </a>
+    <mat-form-field>
+      <mat-label>Comment</mat-label>
+      <textarea matNativeControl [formControl]="body" rows="5"></textarea>
+    </mat-form-field>
+  </div>
+
+  <div class="text-right ml-auto">
+    <div class="btn p-0 upload-btn-wrapper align-middle">
+      <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
+      <button type="button" class="btn btn-icon btn-transparent rounded" (click)="fileInput.click()">
+        <span class="btn-inner--icon icon-big"><i class="fa fa-image"></i></span>
+      </button>
+    </div>
+    <button type="submit" class="btn btn-sm btn-primary btn-icon" (click)="send()">
+      <span class="btn-inner--icon icon-big"><i class="ni ni-send"></i></span>
+      <span class="btn-inner--text">Comment</span>
+    </button>
+  </div>
+</form>

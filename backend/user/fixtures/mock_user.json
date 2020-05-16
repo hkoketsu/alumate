@@ -1,0 +1,65 @@
+[
+    {
+        "model": "user.CustomUser",
+        "pk": 4,
+        "fields": {
+            "password": "pbkdf2_sha256$180000$56nSLYLUYJim$TkjPwerB1wc+RRh01YpjKZ5VMX/ihbIxppOdxXbsYts=",
+            "username": "apple",
+            "email": "apple@email.com"
+        }
+    },
+    {
+        "model": "user.CustomUser",
+        "pk": 5,
+        "fields": {
+            "password": "pbkdf2_sha256$180000$56nSLYLUYJim$TkjPwerB1wc+RRh01YpjKZ5VMX/ihbIxppOdxXbsYts=",
+            "username": "ben",
+            "email": "ben@email.com"
+        }
+    },
+    {
+        "model": "user.CustomUser",
+        "pk": 6,
+        "fields": {
+            "password": "pbkdf2_sha256$180000$56nSLYLUYJim$TkjPwerB1wc+RRh01YpjKZ5VMX/ihbIxppOdxXbsYts=",
+            "username": "cookie",
+            "email": "cookie@email.com"
+        }
+    },
+    {
+        "model": "user.CustomUser",
+        "pk": 7,
+        "fields": {
+            "password": "pbkdf2_sha256$180000$56nSLYLUYJim$TkjPwerB1wc+RRh01YpjKZ5VMX/ihbIxppOdxXbsYts=",
+            "username": "doggo",
+            "email": "doggo@email.com"
+        }
+    },
+    {
+        "model": "user.CustomUser",
+        "pk": 8,
+        "fields": {
+            "password": "pbkdf2_sha256$180000$56nSLYLUYJim$TkjPwerB1wc+RRh01YpjKZ5VMX/ihbIxppOdxXbsYts=",
+            "username": "earlgrey",
+            "email": "earlgrey@email.com"
+        }
+    },
+    {
+        "model": "user.CustomUser",
+        "pk": 9,
+        "fields": {
+            "password": "pbkdf2_sha256$180000$56nSLYLUYJim$TkjPwerB1wc+RRh01YpjKZ5VMX/ihbIxppOdxXbsYts=",
+            "username": "fray",
+            "email": "fray@email.com"
+        }
+    },
+    {
+        "model": "user.CustomUser",
+        "pk": 10,
+        "fields": {
+            "password": "pbkdf2_sha256$180000$56nSLYLUYJim$TkjPwerB1wc+RRh01YpjKZ5VMX/ihbIxppOdxXbsYts=",
+            "username": "goo",
+            "email": "goo@email.com"
+        }
+    }
+]

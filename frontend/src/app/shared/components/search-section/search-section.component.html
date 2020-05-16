@@ -1,0 +1,46 @@
+<form action="">
+  <div class="d-flex flex-column">
+    <!-- Alumate status -->
+    <div class="my-2">
+      <label>Alumate Status</label>
+      <div class="d-flex flex-column" *ngFor="let status of statusChoices">
+        <mat-checkbox (change)="onStatusCheckboxChange(status, $event)">{{ status.displayName }}</mat-checkbox>
+      </div>
+    </div>
+
+    <div  class="d-flex flex-column my-2">
+      <!-- Home Country -->
+      <label class="mb-0">Home Country</label>
+      <app-chips-input [existingItems]="countryChoices" (valueChanged)="onHomeCountryTagsChanged($event)"></app-chips-input>
+
+      <!-- Study Abroad Country -->
+      <label class="mb-0">Study Abroad Country</label>
+      <app-chips-input [existingItems]="countryChoices" (valueChanged)="onStudyAbroadCountryTagsChanged($event)"></app-chips-input>
+
+      <!-- Study Abroad School -->
+      <label class="mb-0">Study Abroad School</label>
+      <app-chips-input [existingItems]="schoolChoices" (valueChanged)="onSchoolTagsChanged($event)"></app-chips-input>
+
+      <!-- Study Abroad Major -->
+      <label class="mb-0">Study Abroad Major</label>
+      <app-chips-input [existingItems]="majorChoices" (valueChanged)="onMajorTagsChanged($event)"></app-chips-input>
+    </div>
+
+    <div class="my-2">
+      <!-- Study Abroad Year -->
+      <label class="tag-label">
+        Study Abroad Year
+      </label>
+      <!-- start year -->
+      <app-slider-input [sliderName]="'Start Year'" (sliderValuesChanged)="onStartYearRangeChanged($event)" class="mb-3"></app-slider-input>
+      <!-- graduate year -->
+      <app-slider-input [sliderName]="'End Year'" (sliderValuesChanged)="onEndYearRangeChanged($event)" ></app-slider-input>
+    </div>
+
+
+    <!-- Apply button -->
+    <div class="text-center mt-4 mb-lg">
+      <button type="button" class="btn btn-primary" (click)="applyChange()" data-dismiss="modal">Apply</button>
+    </div>
+  </div>
+</form>

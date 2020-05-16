@@ -1,0 +1,24 @@
+<div class="d-flex flex-row justify-content-between mb-3">
+    <div *ngIf="searched">
+    <span class="text-primary mt-3" style="font-size: .9rem; font-weight: 600;">
+    {{ resultCount }} {{ resultCount|i18nPlural:pluralMapping }} found
+    </span>
+    </div>
+    <!-- Filter Button to show modal (apper when screen width < 992px) -->
+    <div class="d-lg-none">
+    <button class="btn-primary btn btn-sm"
+    data-toggle="modal" data-target="#updateFilter"
+        data-placement="top" data-container="body" data-animation="true">
+        Filter
+    </button>
+    </div>
+</div>
+<!-- Resutls -->
+<div class="card py-5 px-4" >
+    <div class="row" *ngFor="let row of result">
+      <div class="col-12 col-lg-4" *ngFor="let basicInfo of row" >
+        <app-account-summary-section [basicInfo]="basicInfo"></app-account-summary-section>
+      </div>
+    </div>
+</div>
+<!-- End resutls -->

@@ -1,0 +1,6 @@
+<div class="text-muted mr-3" *ngIf="tags" >
+  <i class="ni ni-tag mr-1 align-middle"></i><span class="align-middle">{{ labelName }}</span>
+  <a href="" *ngFor="let tag of tags" >
+    <span class="badge mr-1 mb-1 badge-secondary">{{ tag.body }}</span>
+  </a>
+</div>

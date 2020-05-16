@@ -1,0 +1,16 @@
+<div class="text-center pb-3 border-bottom">
+  <h3 mat-dialog-title class="text-muted my-0">Edit About</h3>
+</div>
+
+<mat-dialog-content [formGroup]="form">
+  <mat-form-field>
+    <mat-label>About</mat-label>
+    <textarea matNativeControl formControlName="body" rows="5"></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+
+<div mat-dialog-actions class="d-flex justify-content-center mb-4">
+  <button mat-raised-button color="primary" (click)="save()">Save changes</button>
+  <button mat-raised-button color="basic" (click)="cancel()">Cancel</button>
+</div>
+

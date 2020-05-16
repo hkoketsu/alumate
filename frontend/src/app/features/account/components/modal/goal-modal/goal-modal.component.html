@@ -1,0 +1,39 @@
+<div class="text-center pb-3 border-bottom">
+  <h3 mat-dialog-title class="text-muted my-0">Edit Goals</h3>
+</div>
+
+<mat-dialog-content>
+  <div class="d-flex flex-column">
+    <mat-form-field class="example-chip-list">
+      <mat-chip-list #chipList aria-label="Fruit selection">
+        <mat-chip
+          *ngFor="let goal of goals"
+          [selectable]="selectable"
+          [removable]="removable"
+          (removed)="remove(goal)">
+          {{ goal }}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+
+        <input
+          placeholder="Add goals..."
+          #goalsInput
+          [formControl]="goalControl"
+          [matAutocomplete]="auto"
+          [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+        <mat-option *ngFor="let goal of filteredGoals | async" [value]="goal">
+          {{ goal }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+
+<div mat-dialog-actions class="d-flex justify-content-center mb-4">
+  <button mat-raised-button color="primary" (click)="save()">Save changes</button>
+  <button mat-raised-button color="basic" (click)="cancel()">Cancel</button>
+</div>

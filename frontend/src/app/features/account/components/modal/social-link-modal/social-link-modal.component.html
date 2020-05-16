@@ -1,0 +1,22 @@
+<div class="text-center pb-3 border-bottom">
+  <h3 mat-dialog-title class="text-muted my-0">Add Scholarship</h3>
+</div>
+
+<mat-dialog-content [formGroup]="form">
+  <div class="d-flex flex-column">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>URL</mat-label>
+      <input matInput formControlName="url" required>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+
+<div mat-dialog-actions class="d-flex justify-content-center mb-4">
+  <button mat-raised-button color="primary" (click)="save()">Add Scholarship</button>
+  <button mat-raised-button color="basic" (click)="cancel()">Cancel</button>
+</div>

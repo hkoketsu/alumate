@@ -1,0 +1,44 @@
+<mat-card>
+  <mat-card-content>
+    <div class="d-flex flex-wrap">
+      <!-- Tags Section -->
+      <div class="order-2 order-lg-1 ml-3">
+        <div class="mr-3 tags-section">
+          <div class="display-4 mb-4">Tags<small class="text-muted align-baseline ml-2" data-toggle="tooltip"
+              data-placement="top" title="You can add tags! The inquiry appers in the tagged people's feed."
+              data-container="body" data-animation="true"><i class="fa fa-question-circle-o"></i></small>
+          </div>
+        </div>
+        <app-search-section></app-search-section>
+      </div>
+      <!-- End Tags Section-->
+      <!-- Inquiry -->
+      <div class="flex-grow-1 order-1 order-lg-2 ml-lg-3" style="min-width: 300px;">
+        <!-- <div class="mb-3">
+            <span class="text-primary" style="font-size: 1rem;">
+                <small>Expected answers are
+                <span class="font-weight-bold">many</span>
+                </small>
+            </span>
+            </div> -->
+        <!-- Input feeld -->
+        <div class="mb-3">
+          <input id="input-title" type="text" class="form-control" placeholder="Title" required>
+        </div>
+        <div class="mb-4">
+          <textarea id="input-body" class="form-control" placeholder="Write your question" rows="15"
+            required></textarea>
+        </div>
+        <!-- Ask Button -->
+        <div class="text-right mb-4 ml-auto">
+          <button type="submit" class="btn btn-sm btn-primary btn-icon">
+            <span class="btn-inner--icon icon-big">
+              <i class="fa fa-question"></i>
+            </span>
+            <span class="btn-inner--text">Ask</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

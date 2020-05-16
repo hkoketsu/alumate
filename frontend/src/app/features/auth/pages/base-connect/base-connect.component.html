@@ -1,0 +1,63 @@
+<header>
+  <app-navbar-auth></app-navbar-auth>
+</header>
+
+<main>
+  <section class="section section-shaped">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h2>Make your timeline yours.</h2>
+          <p><span class="font-weight-400 text-primary">Follow</span> some of the users below and you'll see what they
+            post
+            in your timeline.</p>
+        </div>
+      </div>
+
+      <div *ngIf="futures">
+        <div class="row mb-sm">
+          <div class="col">
+            <h3 class="display-3 status-border">Future students</h3>
+          </div>
+        </div>
+        <div class="row mb-lg">
+          <div class="col col-lg-3 mb-5 mb-lg-0" *ngFor="let basicInfo of futures">
+            <app-account-summary-section [basicInfo]="basicInfo"></app-account-summary-section>
+          </div>
+        </div>
+      </div>
+
+
+      <div *ngIf="students">
+        <div class="row mb-sm">
+          <div class="col">
+            <h3 class="display-3 status-border">Current students</h3>
+          </div>
+        </div>
+        <div class="row mb-lg">
+          <div class="col col-lg-3 mb-5 mb-lg-0" *ngFor="let basicInfo of students">
+            <app-account-summary-section [basicInfo]="basicInfo"></app-account-summary-section>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="alumni">
+        <div class="row mb-sm">
+          <div class="col">
+            <h3 class="display-3 status-border">Alumni</h3>
+          </div>
+        </div>
+        <div class="row mb-lg">
+          <div class="col col-lg-3 mb-5 mb-lg-0" *ngFor="let basicInfo of alumni">
+            <app-account-summary-section [basicInfo]="basicInfo"></app-account-summary-section>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <a routerLink="/home" class="btn btn-primary mt-4">Welcome to Alumate!</a>
+      </div>
+
+    </div>
+  </section>
+</main>

@@ -1,0 +1,22 @@
+<div class="card mb-2 card-zoom" data-animation="zooming">
+  <a routerLink="/message/detail" class="list-group-item">
+    <div class="media">
+      <img alt="Image" src="{{ profileImageUrl }}" class="avatar shadow">
+      <div class="media-body ml-2">
+        <div class="d-flex flex-row justify-content-between align-items-center">
+          <h3 class="sender-name mb-0 text-muted">
+            {{ name }}
+          </h3>
+          <div class="d-flex flex-row">
+            <small class="text-muted">{{ message.created_at }}</small>
+            <!-- only if the user is online !-->
+            <!-- <span class="ml-2 align-self-center badge badge-success notificate"></span> -->
+          </div>
+        </div>
+        <span class="small text-muted">
+          {{ message.body.length > 30 ? message.body.substring(0, 30) + '...' : message.body }}
+        </span>
+      </div>
+    </div>
+  </a>
+</div>

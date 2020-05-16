@@ -1,0 +1,17 @@
+<div class="row mt-lg">
+  <div class="col" *ngIf="comments">
+    <h3 class="display-4 text-center">{{ comments.length }} {{ comments.length|i18nPlural:pluralMapping }}</h3>
+    <h3 class="mt-5 mb-4 display-4 text-center">Post your comment</h3>
+
+    <div class="media mt-5" *ngFor="let comment of comments">
+      <app-inquiry-detail-comment [comment]="comment"></app-inquiry-detail-comment>
+    </div>
+
+    <div class="media media-post">
+      <div class="media-body">
+        <!-- Can this form be markdown style? -->
+        <app-inquiry-detail-comment-form></app-inquiry-detail-comment-form>
+      </div>
+    </div>
+  </div>
+</div>

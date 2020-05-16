@@ -1,0 +1,30 @@
+<div class="card shadow p-4">
+  <div class="card-body p-0">
+    <form>
+      <div class="media align-items-center">
+        <a routerLink="/account" class="mr-3">
+          <img alt="Image placeholder" class="avatar avatar-lg rounded-circle mb-4" src="assets/img/placeholder.png">
+        </a>
+        <mat-form-field>
+          <mat-label>Write your post...</mat-label>
+          <textarea matNativeControl [formControl]="body" rows="5"></textarea>
+        </mat-form-field>
+      </div>
+      <div id="image-preview-container" class="d-none">
+        <img id="post-preview-image" class="w-100 h-100">
+      </div>
+      <div class="text-right ml-auto">
+        <div class="btn p-0 upload-btn-wrapper align-middle">
+          <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
+          <button type="button" class="btn btn-icon btn-transparent rounded" (click)="fileInput.click()">
+            <span class="btn-inner--icon icon-big"><i class="fa fa-image"></i></span>
+          </button>
+        </div>
+        <button type="submit" class="btn btn-sm btn-primary btn-icon" (click)="onSubmit()">
+          <span class="btn-inner--icon icon-big"><i class="ni ni-fat-add"></i></span>
+          <span class="btn-inner--text">Post</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

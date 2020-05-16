@@ -1,0 +1,17 @@
+.section {
+  height: 100vh;
+}
+
+/* media */
+@media (min-width: 1200px) {
+}
+@media (min-width: 992px) {}
+
+@media (min-width: 768px) {
+  .section {
+    height: auto;
+    min-height: 100vh;
+  }
+}
+
+@media (min-width: 576px) {}

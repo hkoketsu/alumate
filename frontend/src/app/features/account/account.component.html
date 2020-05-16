@@ -1,0 +1,487 @@
+<header>
+  <app-navbar-auth></app-navbar-auth>
+</header>
+
+<main class="profile-page">
+  <section class="section-profile-cover section-shaped my-0" style="height:300px">
+    <!-- Circles background -->
+    <img class="bg-image" src="" style="width: 100%;">
+    <!-- SVG separator -->
+    <div class="separator separator-bottom separator-skew">
+      <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
+        xmlns="http://www.w3.org/2000/svg">
+        <polygon class="fill-secondary" points="2560 0 2560 100 0 100"></polygon>
+      </svg>
+    </div>
+  </section>
+
+  <section class="section bg-secondary">
+    <div class="container-fluid px-5">
+      <div class="row">
+        <div class="col-xl-5 sidebar">
+          <!-- User info -->
+          <div class="card card-profile shadow mt--200">
+            <div class="px-4">
+              <!-- Photo -->
+              <div class="row justify-content-center" style="min-height: 130px;">
+                <div class="col-lg-12" style="z-index:2;">
+                  <div class="card-profile-image">
+                    <a>
+                      <img src="{{ profileImageUrl }}" class="rounded-circle"
+                        (mouseenter)="showProfileImageEditButton()" (mouseleave)="hideProfileImageEditButton()">
+                    </a>
+
+                    <!-- picture edit button -->
+                    <app-profile-image-edit-btn _ngcontent-c1 [showButton]="profileImageOnHover">
+                    </app-profile-image-edit-btn>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row justify-content-center">
+                <div class="col-lg-12">
+                  <div class="card-profile-actions text-center py-4">
+                    <button *ngIf="!hasEditPermission && !isFollowing" type="button"
+                      class="btn btn-sm btn-info">Follow</button>
+                    <div class="d-flex justify-content-center">
+                      <button type="button" class="btn btn-sm btn-info">Following</button>
+                      <button type="button" class="btn btn-sm btn-primary ml-1" (click)="openDirectMessageModal()">Message</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row justify-content-center">
+                <div class="col-lg-12">
+                  <div class="card-profile-stats py-0 d-flex justify-content-center">
+                    <div>
+                      <a href="">
+                        <span class="heading">0</span>
+                      </a>
+                      <span class="description">Followers</span>
+                    </div>
+                    <div>
+                      <a href="">
+                        <span class="heading">0</span>
+                      </a>
+                      <span class="description">Followings</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row justify-content-end" *ngIf="hasEditPermission">
+                <!-- <div *ngIf="basicInfo; else noBasicInfo" class="col text-right">
+                  <app-basic-info-edit-btn></app-basic-info-edit-btn>
+                </div>
+                <ng-template #noBasicInfo> -->
+                <div class="col text-right">
+                  <ng-template [ngIf]="!basicInfo" [ngIfElse]="basicInfoExists">
+                    <app-basic-info-add-btn></app-basic-info-add-btn>
+                  </ng-template>
+                  <ng-template #basicInfoExists>
+                    <app-basic-info-edit-btn></app-basic-info-edit-btn>
+                  </ng-template>
+                </div>
+                <!-- </ng-template> -->
+              </div>
+              <!-- display Basic Info   -->
+              <div *ngIf="basicInfo" class="text-center mt-2">
+                <h1>
+                  {{ basicInfo.name }}
+                  <img class="img-fluid rounded shadow ml-2" style="width: 1.75rem;"
+                    src="assets/img/brand/logo_future.png" *ngIf="basicInfo.status.value === 'FU'" >
+                  <img class="img-fluid rounded shadow ml-2" style="width: 1.75rem;"
+                    src="assets/img/brand/logo_current.png" *ngIf="basicInfo.status.value === 'CU'">
+                  <img class="img-fluid rounded shadow ml-2" style="width: 1.75rem;"
+                    src="assets/img/brand/logo_alumni.png" *ngIf="basicInfo.status.value === 'AL'">
+                </h1>
+                <div class="text-muted font-weight-500 mt-3 mb-2">
+                  from {{ basicInfo.homeCountry.name }} to {{ basicInfo.studyAbroadCountry.name }}
+                </div>
+                <div *ngIf="studyAbroad" >
+                  <div class="h5">{{ studyAbroad.education.school.name }}</div>
+                  <div class="font-weight-500">{{ studyAbroad.education.degree.displayName }} in
+                    {{ studyAbroad.education.major.name }}</div>
+                  <div class="text-muted font-weight-300"><small>{{ studyAbroad.education.startYear }} ~
+                      {{ studyAbroad.education.endYear }}</small></div>
+                  <!-- <div class="font-weight-400 mt-4"><i
+                      class="ni ni-pin-3 mr-2"></i>{{ studyAbroad.livingCity }}</div> -->
+                </div>
+
+              </div>
+              <!-- "editStudyAbroad" -->
+              <div class="row mt-3 justify-content-end">
+                <div *ngIf="studyAbroad; else noStudyAbroadInfo" class="col text-right">
+                  <app-study-abroad-edit-btn></app-study-abroad-edit-btn>
+                </div>
+                <ng-template #noStudyAbroadInfo>
+                  <div class="col text-right">
+                    <app-study-abroad-add-btn></app-study-abroad-add-btn>
+                  </div>
+                </ng-template>
+              </div>
+
+              <!-- margin between study abroad and about -->
+              <div *ngIf="about || hasEditPermission" class="mt-5 pt-4 border-top"></div>
+              <!-- About -->
+              <!-- "editAbout" -->
+              <div *ngIf="hasEditPermission">
+                <div class="row mb-2 justify-content-end" *ngIf="about; else noAbout">
+                  <div class="col text-right">
+                    <!-- Button trigger modal -->
+                    <app-about-edit-btn></app-about-edit-btn>
+                  </div>
+                </div>
+                <ng-template #noAbout>
+                  <div class="row mb-3 px-3">
+                    <div class="icon icon-sm icon-shape icon-shape-danger shadow rounded-circle mr-2">
+                      <i class="ni ni-books text-danger"></i>
+                    </div>
+                    <h2 class="font-weight-bold text-muted text-uppercase">About</h2>
+                  </div>
+                  <div class="row mb-2 justify-content-end">
+                    <div class="col text-right">
+                      <!-- Button trigger modal -->
+                      <app-about-add-btn></app-about-add-btn>
+                    </div>
+                  </div>
+                </ng-template>
+              </div>
+              <!-- display about -->
+              <div *ngIf="about" class="row justify-content-center">
+                <div class="col">
+                  <p>{{ about.body }}</p>
+                </div>
+              </div>
+
+
+              <!-- Works & Educations -->
+              <div *ngIf="expHistory || hasEditPermission" class="mt-4 pt-4 border-top"></div>
+
+              <div *ngIf="hasEditPermission">
+                <div *ngIf="!expHistory" class="row mb-3">
+                  <div class="col">
+                    <div class="icon icon-sm icon-shape icon-shape-danger shadow rounded-circle mr-2">
+                      <i class="ni ni-paper-diploma text-danger"></i>
+                    </div>
+                    <span class="h5 font-weight-bold text-muted text-uppercase">Works & Educations</span>
+                  </div>
+                </div>
+                <div class="row mb-2 justify-content-end">
+                  <div class="col text-right">
+                    <app-work-add-btn></app-work-add-btn>
+                    <span class="mx-1"></span>
+                    <app-education-add-btn></app-education-add-btn>
+                  </div>
+                </div>
+              </div>
+              <!-- display "Works & Educations" -->
+              <div class="row mb-md-2">
+                <div class="col">
+                  <div class="timeline timeline-one-side" data-timeline-content="axis" data-timeline-axis-style="dashed"
+                    *ngFor="let exp of expHistory">
+                    <!-- work experience -->
+                    <div>
+                      <div *ngIf="exp.isWork; else education" class="timeline-block">
+                        <span class="timeline-step badge-success">
+                          <i class="ni ni-briefcase-24"></i>
+                        </span>
+                        <div class="timeline-content">
+                          <div class="d-flex justify-content-between pt-1">
+                            <div class="text-left">
+                              <span class="text-muted text-sm font-weight-bold">{{ exp.value.company }}</span>
+                            </div>
+                            <div *ngIf="exp.value.startYear == 'Target'; else nonWorkTarget" class="text-right">
+                              <small class="text-muted">Target</small>
+                            </div>
+                            <ng-template #nonWorkTarget>
+                              <div *ngIf="exp.value.startYear != 'NA'" class="text-right">
+                                <small class="text-muted">
+                                  <!-- {{ exp.value.start_year }} - {{ exp.value.end_year }} -->
+                                  2010 - 2018
+                                </small>
+                              </div>
+                            </ng-template>
+                          </div>
+                          <div class="d-flex justify-content-between">
+                            <h6 class="text-sm text-left mt-1 mb-0">{{ exp.value.position }}</h6>
+                            <div *ngIf="hasEditPermission">
+                              <!-- <app-work-edit-btn></app-work-edit-btn> -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- education -->
+                    <ng-template #education>
+                      <div class="timeline-block">
+                        <span class="timeline-step badge-info">
+                          <i class="ni ni-hat-3"></i>
+                        </span>
+                        <div class="timeline-content">
+                          <div class="d-flex justify-content-between pt-1">
+                            <div class="text-left">
+                              <span class="text-muted text-sm font-weight-bold">
+                                <!-- {{ exp.value.school }} -->
+                              </span>
+                            </div>
+                            <div *ngIf="exp.value.start_year == 'Target'; else nonEduTarget" class="text-right">
+                              <small class="text-muted">Target</small>
+                            </div>
+                            <ng-template #nonEduTarget>
+                              <div *ngIf="exp.value.startYear != 'NA'" class="text-right">
+                                <small class="text-muted">
+                                  <!-- {{ exp.value.start_year }} - {{ exp.value.end_year }} -->
+                                  2010 - 2018
+                                </small>
+                              </div>
+                            </ng-template>
+                          </div>
+                          <div class="d-flex justify-content-between">
+                            <h6 *ngIf="exp.value.degree != 'O'; else hasDegree" class="text-sm text-left mt-1 mb-0">
+                              <!-- {{ exp.value.get_degree_display }} in -->
+                              <!-- {{ exp.value.major }} -->
+                            </h6>
+                            <h6 #hasDegree class="text-sm text-left mt-1 mb-0">
+                              <!-- {{ exp.value.major }} -->
+                            </h6>
+                            <div *ngIf="hasEditPermission">
+                              <!-- <app-education-edit-btn></app-education-edit-btn> -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </div>
+                </div>
+              </div>
+
+              <!-- margin between work & education and goals -->
+              <div *ngIf="hasEditPermission || goals" class="mt-5 pt-4 border-top"></div>
+
+              <!-- Goals -->
+              <!-- "editGoals" -->
+              <div class="row mb-2 justify-content-end" *ngIf="hasEditPermission && goals">
+                <div class="col text-right">
+                  <app-goal-edit-btn></app-goal-edit-btn>
+                </div>
+              </div>
+              <!-- display Goals -->
+              <div class="row mb-3" *ngIf="hasEditPermission || goals">
+                <div class="col">
+                  <div class="icon icon-sm icon-shape icon-shape-success shadow rounded-circle mr-2">
+                    <i class="fa fa-flag text-success"></i>
+                  </div>
+                  <span class="h5 font-weight-bold text-muted text-uppercase">Goals</span>
+                </div>
+              </div>
+
+              <div class="row mb-5 px-3" *ngIf="goals" >
+                <mat-chip-list aria-label="Goal selection" *ngFor="let goal of goals">
+                  <mat-chip class="mr-2 goal-chip">{{ goal.body }}</mat-chip>
+                </mat-chip-list>
+              </div>
+
+               <!-- "add Goals" -->
+               <div class="row mb-2 justify-content-end" *ngIf="hasEditPermission && !goals">
+                <div class="col text-right">
+                  <!-- Button trigger modal -->
+                  <app-goal-add-btn></app-goal-add-btn>
+                </div>
+              </div>
+
+              <!-- margin between goals and study interests -->
+              <div *ngIf="hasEditPermission || studyInterests" class="mt-5 pt-4 border-top"></div>
+
+              <!-- Study Interests -->
+              <!-- "edit Study Interests" -->
+              <div class="row justify-content-end" *ngIf="hasEditPermission && studyInterests">
+                <div class="col text-right">
+                  <!-- Button trigger modal -->
+                  <app-study-interest-edit-btn></app-study-interest-edit-btn>
+                </div>
+              </div>
+              <!-- display Study Interests -->
+              <div class="row mb-3 px-3" *ngIf="hasEditPermission || studyInterests">
+                <div class="icon icon-sm icon-shape icon-shape-danger shadow rounded-circle mr-2">
+                  <i class="ni ni-books text-danger"></i>
+                </div>
+                <h2 class="font-weight-bold text-muted text-uppercase">Study Interests</h2>
+              </div>
+              <div class="row mb-5 px-3" *ngIf="studyInterests" >
+                <mat-chip-list aria-label="Study interest selection" *ngFor="let studyInterest of studyInterests">
+                  <mat-chip class="mr-2 study-interest-chip">{{ studyInterest.body }}</mat-chip>
+                </mat-chip-list>
+              </div>
+               <!-- "add Study Interests" -->
+               <div class="row mb-2 justify-content-end" *ngIf="hasEditPermission && !studyInterests">
+                <div class="col text-right">
+                  <!-- Button trigger modal -->
+                  <app-study-interest-add-btn></app-study-interest-add-btn>
+                </div>
+              </div>
+
+              <!-- Scholarships -->
+              <div *ngIf="hasEditPermission || scholarships" class="mt-5 pt-4 border-top"></div>
+              <div class="row mb-3">
+                <div class="col">
+                  <div class="icon icon-sm icon-shape icon-shape-danger shadow rounded-circle mr-2">
+                    <i class="ni ni-paper-diploma text-danger"></i>
+                  </div>
+                  <span class="h5 font-weight-bold text-muted text-uppercase">Scholarships</span>
+                </div>
+              </div>
+              <!-- "addScholarship" -->
+              <div class="row mb-2 justify-content-end" *ngIf="hasEditPermission">
+                <div class="col text-right">
+                  <!-- Button trigger modal -->
+                  <app-scholarship-add-btn></app-scholarship-add-btn>
+                </div>
+              </div>
+              <!-- display "Scholasrship" -->
+              <div class="row" *ngFor="let scholarship of scholarships">
+                <div class="col">
+                  <div class="d-flex flex-row justify-content-between">
+                    <span class="text-muted font-weight-bold">{{ scholarship.organization }}</span>
+                    <div>
+                      <small class="text-muted">{{ scholarship.startYear }} -
+                        {{ scholarship.endYear }}</small>
+                      <!-- Button trigger modal -->
+                      <span *ngIf="hasEditPermission" data-toggle="modal" data-toggle="tooltip" data-placement="top"
+                        data-container="body" data-animation="true">
+                        <a class="ml-2" type="button" data-toggle="tooltip" data-original-title="Edit Scholarship">
+                          <i class="fa fa-pencil text-gray"></i>
+                        </a>
+                      </span>
+                    </div>
+                  </div>
+                  <span class="text-sm text-left mt-1">
+                    {{ scholarship.title }}
+                  </span>
+                </div>
+              </div>
+
+
+              <!-- Social Links -->
+              <div *ngIf="hasEditPermission || socialLinks" class="mt-5 pt-4 border-top"></div>
+              <div class="row mb-3 px-3">
+                <div class="icon icon-sm icon-shape icon-shape-default shadow rounded-circle mr-2">
+                  <i class="ni ni-world text-default"></i>
+                </div>
+                <h2 class="font-weight-bold text-muted text-uppercase">Social Links</h2>
+              </div>
+              <!-- "addSocialLink" -->
+              <div *ngIf="hasEditPermission" class="row mb-2 justify-content-end">
+                <div class="col text-right">
+                  <!-- Button trigger modal -->
+                  <app-social-link-add-btn></app-social-link-add-btn>
+                </div>
+              </div>
+              <!-- display "Social Links" -->
+              <div *ngIf="socialLinks" class="row mb-5">
+                <div class="col">
+                  <div *ngFor="let socialLink of socialLinks" class="row justify-content-between px-3">
+                    <a href={{socialLink.url}}>
+                      <h4 class="btn-link">{{ socialLink.title }}</h4>
+                    </a>
+                    <!-- Button trigger modal -->
+                    <span *ngIf="hasEditPermission" data-toggle="modal" data-target="#editSocialLink-1"
+                      data-toggle="tooltip" data-placement="top" data-container="body" data-animation="true">
+                      <a type="button" data-toggle="tooltip" data-original-title="Edit Blog">
+                        <i class="fa fa-pencil text-gray"></i>
+                      </a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- edit "Profile" -->
+              <div class="mt-5 pt-4 border-top"></div>
+              <div *ngIf="hasEditPermission">
+                <!-- <app-profile-edit-btn></app-profile-edit-btn> -->
+              </div>
+
+              <!-- display "Profile" -->
+              <div *ngIf="hasEditPermission || profile">
+                <div class="row mb-3">
+                  <div class="col">
+                    <div class="icon icon-sm icon-shape icon-shape-default shadow rounded-circle mr-2">
+                      <i class="ni ni-single-02 text-default"></i>
+                    </div>
+                    <span class="h5 font-weight-bold text-muted text-uppercase">Profile</span>
+                  </div>
+                </div>
+                <div class="row mb-5" *ngIf="profile">
+                  <div class="col">
+                    <h4>
+                      {{ profile.gender.displayName }}
+                      <!-- {{ profile.get_gender_display }} -->
+                    </h4>
+                    <h4>{{ profile.birthday | date }}</h4>
+                  </div>
+                </div>
+              </div>
+
+              <!-- add "Profile" -->
+              <div class="row mb-5 justify-content-end" *ngIf="hasEditPermission && !profile">
+                <div class="col text-right">
+                  <!-- Button trigger modal -->
+                  <app-profile-add-btn></app-profile-add-btn>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Collection Area -->
+        <div class="col">
+          <!-- Nav button -->
+          <div class="row mb-4">
+            <div class="col-md-8 mx-auto">
+              <div class="profile-tabs">
+                <ul class="nav nav-pills nav-pills-icons justify-content-sm-center" role="tablist">
+                  <li class="nav-item" style="width:140px">
+                    <a class="nav-link active show" href="#post" role="tab" data-toggle="tab" aria-selected="true">
+                      <i class="ni ni-fat-add"></i>
+                      Post
+                    </a>
+                  </li>
+                  <li class="nav-item" style="width:140px">
+                    <a class="nav-link" href="#ask" role="tab" data-toggle="tab" aria-selected="false">
+                      <i class="fa fa-question"></i>
+                      Ask
+                    </a>
+                  </li>
+                  <!-- <li class="nav-item" style="width:140px">
+                    <a class="nav-link" href="#appreciation" role="tab" data-toggle="tab" aria-selected="false">
+                      <i class="ni ni-diamond"></i>
+                      Appreciation
+                    </a>
+                  </li> -->
+                  <!-- when noticle availbe, uncomment the followings -->
+                  <!--
+                    <li class="nav-item" style="width:140px">
+                    <a class="nav-link" href="#" role="tab" data-toggle="popover" aria-selected="false"
+                    data-placement="top" data-content="Oops! This function is coming soon!">
+                    <i class="ni ni-collection"></i>
+                    Noticle
+                    </a>
+                    <a class="nav-link" href="#noticle" role="tab" data-toggle="tab" aria-selected="false">
+                    <i class="ni ni-collection"></i>
+                    Noticle
+                    </a>
+                    </li> -->
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Feed area -->
+
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

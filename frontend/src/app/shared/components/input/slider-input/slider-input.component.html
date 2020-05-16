@@ -1,0 +1,5 @@
+<form [formGroup]="sliderForm">
+  <span class="slider-year"><small>{{ sliderName }}</small></span>
+  <ng5-slider [options]="sliderOptions" (userChangeEnd)="updateSlider()" formControlName="range"></ng5-slider>
+  <span><small class="text-muted">{{sliderForm.value.range[0]}} - {{sliderForm.value.range[1]}}</small></span>
+</form>

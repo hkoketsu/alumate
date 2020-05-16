@@ -1,0 +1,12 @@
+button {
+  background-color: white !important;
+}
+
+i {
+  color: #8898aa!important;
+  box-shadow: 0 0 black;
+}
+
+button:focus {
+  outline: none !important;
+}

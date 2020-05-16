@@ -1,0 +1,52 @@
+<div class="d-flex">
+  <a routerLink="/account" class="mr-3">
+    <img src="{{ profileImageUrl }}" class="avatar avatar-lg rounded-circle">
+  </a>
+  <div class="media-body">
+    <div class="d-flex flex-row align-items-baseline">
+      <h4 class="media-heading mr-2">
+        {{ basicInfo.name }}
+      </h4><small class="text-muted">{{ comment.created_at }}</small>
+    </div>
+    <p class="font-size">{{ comment.body }}</p>
+    <div class="d-flex flex-row justify-content-end">
+      <button type="submit" class="mr-4 text-danger btn-transparent">
+        <small>
+          <i class="ni ni-diamond"></i>
+          {{ likes.length }}
+        </small>
+      </button>
+      <button class="text-primary btn-transparent" (click)="displayReplyForm()">
+        <small>
+          <i class="fa fa-reply"></i>
+          &nbsp;Reply
+        </small>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Replay section -->
+<div class="media-post pl-5" *ngIf="replyFormShown" >
+  <form>
+    <div class="media align-items-center mt-5">
+      <a routerLink="/account" class="mr-3">
+        <img alt="Image placeholder" class="avatar avatar-lg rounded-circle mb-4" src="{{ profileImageUrl }}">
+      </a>
+      <div class="media-body">
+        <textarea class="form-control" placeholder="Write your comment" rows="3"></textarea>
+      </div>
+    </div>
+    <div class="text-right ml-auto">
+      <div class="text-right">
+        <button type="button" class="btn btn-md btn-transparent btn-icon rounded">
+          <span class="btn-inner--icon icon-big"><i class="fa fa-image"></i></span>
+        </button>
+        <button class="btn btn-primary btn-sm btn-round">
+          Comment
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

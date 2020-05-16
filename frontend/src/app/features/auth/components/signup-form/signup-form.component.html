@@ -1,0 +1,53 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input matInput formControlName="username">
+    <mat-error *ngIf="(username.invalid && (username.dirty || username.touched))">
+      <div *ngIf="username.errors?.required" >This field is required</div>
+    </mat-error>
+    <mat-error *ngIf="username.errors?.serverErrors">
+      <div *ngFor="let errorMessage of username.errors?.serverErrors">{{ errorMessage }}</div>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email">
+    <mat-error *ngIf="(email.invalid && (email.dirty || email.touched))">
+      <div *ngIf="email.errors?.required" >This field is required</div>
+    </mat-error>
+    <mat-error *ngIf="email.errors?.serverErrors">
+      <div *ngFor="let errorMessage of email.errors?.serverErrors">{{ errorMessage }}</div>
+    </mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput formControlName="password" [type]="showPassword ? 'text' : 'password'">
+    <button mat-icon-button matSuffix (click)="showPassword = !showPassword"
+      [attr.aria-label]="'Hide password'" [attr.aria-pressed]="!showPassword">
+      <mat-icon>{{ showPassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+    </button>
+    <mat-error *ngIf="(password.invalid && (password.dirty || password.touched))">
+      <div *ngIf="password.errors?.required" >This field is required</div>
+    </mat-error>
+    <mat-error *ngIf="password.errors?.serverErrors">
+      <div *ngFor="let errorMessage of password.errors?.serverErrors">{{ errorMessage }}</div>
+    </mat-error>
+  </mat-form-field>
+
+  <div class="row my-4">
+    <div class="col-12">
+      <div class="custom-control custom-control-alternative custom-checkbox">
+        <input type="checkbox" class="custom-control-input" (click)="updatePolicyAgreement()" id="customCheckRegister">
+        <label class="custom-control-label" for="customCheckRegister"><span>I agree with the <a routerLink="/auth/privacy-policy" target="_blank">Privacy Policy</a></span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary mt-4" [disabled]="!form.valid || !agreeOnPrivacyPolicy">Create account</button>
+  </div>
+</form>

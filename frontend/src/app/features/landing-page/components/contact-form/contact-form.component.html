@@ -1,0 +1,51 @@
+<mat-card>
+  <div class="card-header text-center">
+    <h4 class="card-title">Contact Us</h4>
+  </div>
+
+  <mat-card-content [formGroup]="form">
+    <div class="d-flex flex-column">
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field>
+            <mat-label>First Name</mat-label>
+            <span matPrefix><i class="ni ni-circle-08 mr-1"></i></span>
+            <input matInput formControlName="firstName">
+          </mat-form-field>
+        </div>
+        <div class="col-md-5 ml-2">
+          <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <span matPrefix><i class="ni ni-circle-08 mr-1"></i></span>
+            <input matInput formControlName="lastName">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <mat-form-field>
+        <mat-label>Email Address</mat-label>
+        <span matPrefix><i class="ni ni-email-83 mr-1"></i></span>
+        <input matInput formControlName="email">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Your message</mat-label>
+        <textarea matNativeControl formControlName="body" rows="8"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="custom-control custom-checkbox mt-2">
+          <input class="custom-control-input" id="customCheck" type="checkbox">
+          <label class="custom-control-label" for="customCheck">
+            <span>I'm not a robot</span>
+          </label>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <button type="button" (click)="submit()" class="btn btn-primary pull-right">Send</button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

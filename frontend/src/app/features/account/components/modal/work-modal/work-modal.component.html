@@ -1,0 +1,44 @@
+<div class="text-center pb-3 border-bottom">
+  <h3 mat-dialog-title class="text-muted my-0">Add Work</h3>
+</div>
+
+<mat-dialog-content [formGroup]="form">
+  <div class="d-flex flex-column">
+    <mat-form-field>
+      <mat-label>Company</mat-label>
+      <input matInput formControlName="company" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Position</mat-label>
+      <input matInput formControlName="position" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Work from</mat-label>
+      <mat-select formControlName="homeCountry" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let year of fromYearOptions" [value]="year">
+          {{ year }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-label>Work until</mat-label>
+      <mat-select formControlName="studyAbroadCountry" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let year of untilYearOptions" [value]="year">
+          {{ year }}
+        </mat-option>
+      </mat-select>
+
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+
+<div mat-dialog-actions class="d-flex justify-content-center mb-4">
+  <button mat-raised-button color="primary" (click)="save()">Add Work</button>
+  <button mat-raised-button color="basic" (click)="cancel()">Cancel</button>
+</div>

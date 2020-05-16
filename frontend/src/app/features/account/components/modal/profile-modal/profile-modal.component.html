@@ -1,0 +1,29 @@
+<div class="text-center pb-3 border-bottom">
+  <h3 mat-dialog-title class="text-muted my-0">Add Profile</h3>
+</div>
+
+<mat-dialog-content [formGroup]="form">
+  <div class="d-flex flex-column">
+    <mat-form-field>
+      <mat-label>Gender</mat-label>
+      <mat-select formControlName="gender" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let gender of genderOptions" [value]="gender">
+          {{ gender.displayName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Birthday</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="birthday">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+
+<div mat-dialog-actions class="d-flex justify-content-center mb-4">
+  <button mat-raised-button color="primary" (click)="save()">Add Education</button>
+  <button mat-raised-button color="basic" (click)="cancel()">Cancel</button>
+</div>

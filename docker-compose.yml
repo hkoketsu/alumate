@@ -1,0 +1,35 @@
+# for development
+version: '3.7'
+
+services:
+    web:
+        build: ./frontend
+        command: npm start
+        volumes:
+        - ./frontend/:/usr/src/frontend/
+        ports:
+        - 4200:4200
+        depends_on:
+            - api
+
+    api:
+        build: ./backend
+        command: python manage.py runserver 0.0.0.0:8000
+        volumes:
+        - ./backend/:/usr/src/backend/
+        ports:
+        - 8000:8000
+        env_file:
+        - ./env/.backend.env
+        depends_on:
+            - db
+    
+    db:
+        image: postgres:12.0-alpine
+        volumes:
+        - postgres_data:/var/lib/postgresql/data/
+        env_file:
+            - ./env/.db.env
+        
+volumes:
+    postgres_data:

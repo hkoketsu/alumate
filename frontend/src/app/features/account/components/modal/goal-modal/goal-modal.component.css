@@ -1,0 +1,13 @@
+mat-dialog-content {
+  width: 350px;
+  margin: 30px 0;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-top: 10px;
+}
+
+mat-radio-button {
+  margin-top: 10px;
+}

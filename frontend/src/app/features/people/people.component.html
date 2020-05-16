@@ -1,0 +1,50 @@
+<header>
+  <app-navbar-auth></app-navbar-auth>
+</header>
+
+<main>
+  <section class="bg-secondary" style="min-height: 100%">
+    <!-- Modal "updateFilter" -->
+    <div class="modal fade" id="updateFilter" tabindex="-1" role="dialog" aria-labelledby="updateFilter"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-body p-0" id="dropdownParent">
+            <div class="card bg-secondary shadow border-0 mb-0">
+              <div class="card-header bg-secondary">
+                <div class="text-muted text-center">
+                  <h6 class="text-muted my-0">Find Alumate Filter</h6>
+                </div>
+              </div>
+              <div class="card-body p-4">
+                <!-- Form -->
+                <app-search-section></app-search-section>
+                <!-- End Form -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal "updateFilter" -->
+
+    <div class="container pt-4">
+      <div class="row mb-3">
+        <div class="col">
+          <div class="display-3">Find Alumate</div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- Tag filter -->
+        <div class="col-lg-3 d-none d-lg-block">
+          <app-search-section (updateClicked)="updateResult($event)"></app-search-section>
+        </div>
+        <!-- Results area -->
+        <div id="result-area" class="col-lg-9 col-12">
+          <app-people-result-section [filter]="filter"></app-people-result-section>
+        </div>
+        <!-- End results area -->
+      </div>
+    </div>
+  </section>
+</main>

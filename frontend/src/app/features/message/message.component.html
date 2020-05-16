@@ -1,0 +1,31 @@
+<header>
+  <app-navbar-auth></app-navbar-auth>
+</header>
+
+<main>
+  <section class="section mb-0 pt-4 bg-secondary" style="min-height: 100vh;">
+    <div class="container">
+      <div class="row my-4">
+        <div class="col-md-8 mx-auto">
+          <div class="d-flex flex-row justify-content-between">
+            <h3 class="display-4">Messages</h3>
+            <!-- New message button -->
+            <button class="align-self-center btn-sm btn btn-round btn-outline-primary btn-icon"
+              (click)="openMessageModal()">
+              <span class="btn-inner--icon">
+                <i class="ni ni-fat-add"></i>
+              </span>
+              <span class="btn-inner--text">New message</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 mx-auto" *ngFor="let message of messages">
+          <!-- Message -->
+          <app-message-list-item [message]="message"></app-message-list-item>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

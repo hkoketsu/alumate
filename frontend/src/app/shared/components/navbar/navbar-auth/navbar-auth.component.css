@@ -1,0 +1,4 @@
+.mat-menu-trigger, .mat-menu-item:focus {
+  outline: none;
+}
+

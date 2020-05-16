@@ -1,0 +1,80 @@
+<div matDialogTitle class="d-flex justify-content-between">
+  <img src="assets/img/brand/logo_text_alumate_white.png" style="width: 128px; height: auto;">
+  <mat-icon class="close-btn" (click)="close()">close</mat-icon>
+</div>
+
+<mat-dialog-content>
+  <ul class="navbar-nav mx-auto py-3">
+    <!-- home -->
+    <li class="nav-item">
+      <a routerLink="home" (click)="close()" class="nav-link py-lg-0 d-flex">
+        <!-- <span class="mx-2" style="font-size: 1.4em; color: #f3f4f6;"> -->
+        <span class="d-lg-none" style="flex-basis: 30px;">
+          <i class="fa fa-home mr-1"></i>
+        </span>
+        <span>Home</span>
+      </a>
+    </li>
+    <!-- people -->
+    <li class="nav-item">
+      <a routerLink="/people" (click)="close()" class="nav-link py-lg-0 d-flex">
+        <!-- <span class="mx-2" style="font-size: 1.4em; color: #f3f4f6;"> -->
+        <span class="d-lg-none" style="flex-basis: 30px;">
+          <i class="fa fa-users mr-1"></i>
+        </span>
+        <span>Find Alumates</span>
+      </a>
+    </li>
+    <!-- inquiry -->
+    <li class="nav-item">
+      <a routerLink="/inquiry" (click)="close()" class="nav-link py-lg-0 d-flex">
+        <!-- <span class="mx-2" style="font-size: 1.5em; color: #f3f4f6;"> -->
+        <span class="d-lg-none" style="flex-basis: 30px;">
+          <i class="fa fa-question ml-1 mr-2"></i>
+        </span>
+        <span>Inquiries</span>
+      </a>
+    </li>
+    <!-- noticle -->
+    <!-- <li class="nav-item ">
+      <a href="javascript:;" class="nav-link">
+        <span class="mx-2 " style="font-size: 1.3em; color: #f3f4f6;">
+          <i style="margin-top: 10px;" class="ni ni-collection"></i>
+        </span>
+        Noticles
+      </a>
+    </li> -->
+    <!-- message -->
+    <li class="nav-item">
+      <a routerLink="/message" (click)="close()" class="nav-link py-lg-0 d-flex">
+        <!-- <span class="mx-2 " style="font-size: 1.5em; color: #f3f4f6;"> -->
+        <span class="d-lg-none" style="flex-basis: 30px;">
+          <i class="fa fa-comments mr-1"></i>
+        </span>
+        <span>Messages</span>
+      </a>
+    </li>
+  </ul>
+  <ul class="navbar-nav mx-auto pt-3">
+    <!-- account page -->
+    <li class="nav-item d-lg-none">
+      <a routerLink="/account" (click)="close()" class="nav-link d-flex" >
+        <span style="flex-basis: 30px;"><i class="ni ni-compass-04 text-muted"></i></span>
+        <span>Account Page</span>
+      </a>
+    </li>
+    <!-- {% comment %} <li class="nav-item d-lg-none">
+      <a class="nav-link d-flex" href="{% url 'accounts:account-setting' %}">
+        <span style="flex-basis: 30px;"><i class="ni ni-lock-circle-open text-muted"></i></span>
+        <span>Account Settings</span>
+      </a>
+    </li> {% endcomment %} -->
+    <li class="nav-item d-lg-none">
+      <a routerLink="/" (click)="close()" class="nav-link d-flex">
+        <span style="flex-basis: 30px;"><i class="ni ni-tv-2 text-danger"></i></span>
+        <span>Logout</span>
+      </a>
+    </li>
+  </ul>
+</mat-dialog-content>
+

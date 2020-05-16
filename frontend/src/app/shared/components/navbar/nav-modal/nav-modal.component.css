@@ -1,0 +1,11 @@
+mat-dialog-content {
+  padding: 0 25px;
+}
+
+ul {
+  border-top: 1px solid rgba(0,0,0,.1);
+}
+
+.close-btn {
+  cursor: pointer;
+}

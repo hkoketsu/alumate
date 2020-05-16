@@ -1,0 +1,24 @@
+<div class="media media-comment">
+  <img alt="Image placeholder" class="avatar avatar-lg rounded-circle" src="{{ profileImageUrl }}">
+  <!-- {% if comment.user.profile_image %}
+  {{ comment.user.profile_image.image.url }}
+  {% else %}
+  {% static 'img/placeholder.jpg' %}
+  {% endif %}
+  "> -->
+  <div class="media-body">
+    <div class="media-comment-text">
+      <div class="mb-2">
+        <a routerLink="/account"
+          class="text-dark font-weight-600 text-sm">
+          Hiroki Koketsu
+        </a>
+      </div>
+      <p class="text-sm lh-160">Comment is here</p>
+      <div class="icon-actions">
+        <app-like-btn></app-like-btn>
+        <app-reply-btn></app-reply-btn>
+      </div>
+    </div>
+  </div>
+</div>

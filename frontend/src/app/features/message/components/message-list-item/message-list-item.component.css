@@ -1,0 +1,11 @@
+.list-group-item:hover {
+  z-index: 2;
+  color: #fff;
+  background-color: #5e72e4;
+  border-color: #5e72e4;
+  background: linear-gradient(35deg,#5e72e4,#825ee4);
+}
+
+.list-group-item:hover * {
+  color: white!important;
+}

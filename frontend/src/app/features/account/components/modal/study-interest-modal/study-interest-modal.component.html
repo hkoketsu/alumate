@@ -1,0 +1,31 @@
+<div class="text-center pb-3 border-bottom">
+  <h3 mat-dialog-title class="text-muted my-0">Edit Study Interests</h3>
+</div>
+
+<mat-dialog-content>
+  <div class="d-flex flex-column">
+    <mat-form-field class="example-chip-list">
+      <mat-chip-list #chipList aria-label="Fruit selection">
+        <mat-chip *ngFor="let studyInterest of studyInterests" [selectable]="selectable" [removable]="removable"
+          (removed)="remove(studyInterest)">
+          {{studyInterest}}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+
+        <input placeholder="Add study interests..." #studyInterestsInput [formControl]="studyInterestControl"
+          [matAutocomplete]="auto" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+        <mat-option *ngFor="let studyInterest of filteredStudyInterests | async" [value]="studyInterest">
+          {{studyInterest}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+
+<div mat-dialog-actions class="d-flex justify-content-center mb-4">
+  <button mat-raised-button color="primary" (click)="save()">Save changes</button>
+  <button mat-raised-button color="basic" (click)="cancel()">Cancel</button>
+</div>

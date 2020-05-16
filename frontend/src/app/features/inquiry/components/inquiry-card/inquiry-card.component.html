@@ -1,0 +1,16 @@
+<mat-card data-animation="zooming">
+  <mat-card-content>
+    <h3 class="card-category text-danger" *ngIf="schoolTag" >
+      <i class="ni ni-badge"></i> {{ schoolTag }}
+    </h3>
+    <h2 class="card-title">
+      <a routerLink="/inquiry/detail">{{ inquiry.title && inquiry.title.length > 70 ? inquiry.title.substring(0, 70) + '...' : inquiry.title }}</a>
+    </h2>
+    <p class="card-description">{{ inquiry.body && inquiry.body.length > 70 ? inquiry.body.substring(0, 70) + '...' : inquiry.body }}</p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <app-like-btn></app-like-btn>
+    <app-reply-btn></app-reply-btn>
+  </mat-card-actions>
+</mat-card>

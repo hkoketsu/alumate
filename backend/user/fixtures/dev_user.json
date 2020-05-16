@@ -1,0 +1,38 @@
+[
+    {
+        "model": "user.CustomUser",
+        "pk": 1,
+        "fields": {
+          "password": "pbkdf2_sha256$180000$YsILJMtVj2Bk$vvAwbuOXqwimoSl+IcHtufeTmnnfHak4v3sgd7HwXfc=",
+          "is_superuser": true,
+          "username": "hkoketsu",
+          "email": "hiroki.koketsu@gmail.com",
+          "is_staff": true,
+          "is_active": true
+        }
+    },
+    {
+        "model": "user.CustomUser",
+        "pk": 2,
+        "fields": {
+          "password": "pbkdf2_sha256$180000$GfCCVeGbZ7jl$UqLDNbrAhZevcYAyAaH1w772PeOgaVYtb7YNvx9xJT0=",
+          "is_superuser": true,
+          "username": "vikas",
+          "email": "vikassrinitb@gmail.com",
+          "is_staff": true,
+          "is_active": true
+        }
+    },
+    {
+        "model": "user.CustomUser",
+        "pk": 3,
+        "fields": {
+          "password": "pbkdf2_sha256$180000$u0obcs3MpX9b$IbDGjBP1yqhAnmZqNrr/SPUrizYK3GnTQa1Bnd/rRQg=",
+          "is_superuser": true,
+          "username": "Shinta",
+          "email": "snishino2013@gmail.com",
+          "is_staff": true,
+          "is_active": true
+        }
+    }
+]

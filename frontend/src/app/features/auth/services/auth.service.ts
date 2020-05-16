@@ -1,8 +1,9 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
+import { TokenService } from './token.service';
 
-interface LoginResponse {
+interface JwtTokenResponse {
   access: string;
   refresh: string;
 }
@@ -13,9 +14,6 @@ interface SignupResponse {
   email: string;
 }
 
-interface RefreshTokenResponse {
-  access: string;
-}
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +21,8 @@ interface RefreshTokenResponse {
 export class AuthService {
   constructor(
     private http: HttpClient,
-    @Inject('BASE_API_URL') private baseUrl: string
+    @Inject('BASE_API_URL') private baseUrl: string,
+    private tokenService: TokenService,
   ) {}
 
   register(username: string, email: string, password: string) {
@@ -38,38 +37,21 @@ export class AuthService {
   login(username: string, password: string) {
     console.log('login');
     return this.http
-      .post<LoginResponse>(`${this.baseUrl}/auth/jwt/create/`, {
+      .post<JwtTokenResponse>(`${this.baseUrl}/auth/jwt/create/`, {
         username,
         password,
       })
-      .pipe(tap((res) => this.setAccessToken(res.access)));
+      .pipe(tap((res) => {
+        this.tokenService.setAccessToken(res.access);
+        this.tokenService.setRefreshToken(res.refresh);
+      }));
   }
 
   logout() {
-    localStorage.removeItem('access_token');
+    this.tokenService.removeToken();
   }
 
   authenticate() {
-    return localStorage.getItem('access_token') !== null;
-  }
-
-  getAccessToken() {
-    return localStorage.getItem('access_token');
-  }
-
-  setAccessToken(token: string) {
-    return localStorage.setItem('access_token', token);
-  }
-
-  refreshJwtSession() {
-    return this.http
-      .post<RefreshTokenResponse>(`${this.baseUrl}/auth/jwt/refresh`, {
-        refresh: this.getAccessToken(),
-      })
-      .pipe(
-        tap((res) => {
-          this.setAccessToken(res.access);
-        })
-      );
+    return this.tokenService.getAccessToken() !== null;
   }
 }

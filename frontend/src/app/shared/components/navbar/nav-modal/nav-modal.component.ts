@@ -1,5 +1,7 @@
 import { MatDialogRef } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/features/auth/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-modal',
@@ -10,6 +12,8 @@ export class NavModalComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<NavModalComponent>,
+    private authService: AuthService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -19,5 +23,11 @@ export class NavModalComponent implements OnInit {
 
   close(): void {
     this.dialogRef.close();
+  }
+
+  logout() {
+    console.log('log out');
+    this.authService.logout();
+    this.router.navigateByUrl('/');
   }
 }

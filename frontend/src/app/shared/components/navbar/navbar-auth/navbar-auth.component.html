@@ -76,12 +76,6 @@
             <span>Account Settings</span>
           </a>
         </li> {% endcomment %} -->
-        <li class="nav-item d-lg-none">
-          <div (click)="logout()" class="nav-link d-flex">
-            <span style="flex-basis: 30px;"><i class="n4i ni-tv-2 text-danger"></i></span>
-            <span>Logout</span>
-          </div>
-        </li>
       </ul>
       <button mat-button [matMenuTriggerFor]="menu"  class="d-none d-lg-block navbar-nav navbar-right ml-lg-auto">
         <img class="avatar avatar-sm rounded-circle" src="assets/img/placeholder.png" />
@@ -94,7 +88,7 @@
           </a>
         </button>
         <button mat-menu-item class="px-0">
-          <div (click)="logout()" class="dropdown-item" routerLink="/">
+          <div (click)="logout()" class="dropdown-item">
             <i class="ni ni-tv-2 text-danger"></i>
             Logout
           </div>

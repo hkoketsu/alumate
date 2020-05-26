@@ -6,16 +6,16 @@ import { catchError, debounceTime, distinctUntilChanged, switchMap, tap } from '
 import { Options } from 'ng5-slider';
 
 @Component({
-  selector: 'app-ask',
-  templateUrl: './ask.component.html',
-  styleUrls: ['./ask.component.css'],
+  selector: 'app-inquiry',
+  templateUrl: './inquiry.component.html',
+  styleUrls: ['./inquiry.component.css'],
 })
-export class AskComponent implements OnInit {
+export class InquiryComponent implements OnInit {
   inquiries: Inquiry[] = [];
 
   constructor() {}
 
   ngOnInit(): void {
-    
+
   }
 }

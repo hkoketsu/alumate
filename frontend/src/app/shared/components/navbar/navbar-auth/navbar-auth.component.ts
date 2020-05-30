@@ -7,22 +7,21 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-navbar-auth',
   templateUrl: './navbar-auth.component.html',
-  styleUrls: ['./navbar-auth.component.css']
+  styleUrls: ['./navbar-auth.component.css'],
 })
 export class NavbarAuthComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private authService: AuthService,
-    private router: Router,
-  ) { }
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   openNavModal(): void {
     const dialogConfig: MatDialogConfig = {
       disableClose: false,
-      maxWidth: '100%'
+      maxWidth: '100%',
     };
     this.dialog.open(NavModalComponent, dialogConfig);
   }
@@ -31,5 +30,16 @@ export class NavbarAuthComponent implements OnInit {
     console.log('log out');
     this.authService.logout();
     this.router.navigateByUrl('/');
+  }
+
+  goToAccountPage() {
+    const user = this.authService.user;
+    if (user) {
+      this.router.navigate(['account', user.id]);
+    } else {
+      this.authService
+        .getUser()
+        .subscribe((user) => this.router.navigateByUrl(`/account/${user.id}`));
+    }
   }
 }

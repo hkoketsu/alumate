@@ -1,10 +1,14 @@
-# for development
+# Switch dockerfile
+# for development: Dev.Dockerfile
+# for production : Prod.Dockerfile
+
 version: '3.7'
 
 services:
     web:
-        build: ./frontend
-        command: npm start
+        build: 
+            context: ./frontend
+            dockerfile: Docker/Dev.Dockerfile
         volumes:
         - ./frontend/:/usr/src/frontend/
         ports:
@@ -13,8 +17,9 @@ services:
             - api
 
     api:
-        build: ./backend
-        command: python manage.py runserver 0.0.0.0:8000
+        build: 
+            context: ./backend
+            dockerfile: Docker/Dev.Dockerfile
         volumes:
         - ./backend/:/usr/src/backend/
         ports:

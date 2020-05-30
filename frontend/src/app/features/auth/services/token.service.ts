@@ -1,11 +1,8 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
+import { RefreshTokenResponse } from '../models/auth.model';
 
-
-interface RefreshTokenResponse {
-  access: string;
-}
 
 @Injectable({
   providedIn: 'root'

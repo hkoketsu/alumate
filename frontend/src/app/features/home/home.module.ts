@@ -4,10 +4,10 @@ import { SharedModule } from './../../shared/modules/shared.module';
 import { PostContentComponent } from './components/post-content/post-content.component';
 import { PostCommentFormComponent } from './components/post-comment-form/post-comment-form.component';
 import { PostCommentComponent } from './components/post-comment/post-comment.component';
-import { AskFormComponent } from './components/ask-form/ask-form.component';
-import { AskContentComponent } from './components/ask-content/ask-content.component';
+import { InquiryFormComponent } from './components/inquiry-form/inquiry-form.component';
+import { InquiryContentComponent } from './components/inquiry-content/inquiry-content.component';
 import { PostComponent } from './pages/post/post.component';
-import { AskComponent } from './pages/ask/ask.component';
+import { InquiryComponent } from './pages/inquiry/inquiry.component';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home.routing';
 import { NgModule } from '@angular/core';
@@ -20,10 +20,10 @@ import { NgModule } from '@angular/core';
   ],
   declarations: [
     HomeComponent,
-    AskComponent,
+    InquiryComponent,
     PostComponent,
-    AskContentComponent,
-    AskFormComponent,
+    InquiryContentComponent,
+    InquiryFormComponent,
   PostCommentComponent,
     PostCommentFormComponent,
     PostContentComponent,
@@ -31,10 +31,10 @@ import { NgModule } from '@angular/core';
   ],
   exports: [
     HomeComponent,
-    AskComponent,
+    InquiryComponent,
     PostComponent,
-    AskContentComponent,
-    AskFormComponent,
+    InquiryContentComponent,
+    InquiryFormComponent,
     PostCommentComponent,
     PostCommentFormComponent,
     PostContentComponent,

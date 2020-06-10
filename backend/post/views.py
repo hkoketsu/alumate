@@ -5,22 +5,25 @@ from rest_framework.response import Response
 from .models import Post, PostComment, PostLike, PostCommentLike
 from . import serializers
 from django.contrib.auth import get_user_model
+from rest_framework import permissions
 User = get_user_model()
 
 # list
 class PostListView(generics.ListAPIView):
     queryset = Post.objects.all()
     serializer_class = serializers.PostSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 # create
 class PostCreateView(generics.CreateAPIView):
     queryset = Post.objects.all()
     serializer_class = serializers.PostSerializer
-
+    permission_classes = [permissions.IsAuthenticated]
 
 class PostCommentListView(generics.ListCreateAPIView):
     queryset = PostComment.objects.all()
     serializer_class = serializers.PostCommentCreateSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         post = get_object_or_404(Post, pk=self.kwargs.pop('pk'))
@@ -46,7 +49,8 @@ class PostCommentListView(generics.ListCreateAPIView):
 
 class PostLikeListView(APIView):
     serializer_class = serializers.PostLikeSerializer
-    
+    permission_classes = [permissions.IsAuthenticated]
+
     def get(self, request, pk=None):
         post = get_object_or_404(Post, pk=pk)
         serializer = self.serializer_class(post.likes, many=True)
@@ -66,6 +70,7 @@ class PostLikeListView(APIView):
 
 class PostCommentLikeListView(APIView):
     serializer_class = serializers.PostCommentLikeSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request, pk=None):
         post_comment = get_object_or_404(PostComment, pk=pk)
@@ -89,6 +94,7 @@ class PostCommentLikeListView(APIView):
 class PostDetailView(generics.RetrieveUpdateDestroyAPIView, generics.CreateAPIView):
     queryset = Post.objects.all()
     serializer_class = serializers.PostSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self, request, *args, **kwargs):
         queryset = self.get_queryset()
@@ -100,6 +106,7 @@ class PostDetailView(generics.RetrieveUpdateDestroyAPIView, generics.CreateAPIVi
 class PostCommentDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = PostComment.objects.all()
     serializer_class = serializers.PostCommentSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self, request, *args, **kwargs):
         queryset = self.get_queryset()
@@ -111,6 +118,7 @@ class PostCommentDetailView(generics.RetrieveUpdateDestroyAPIView):
 class PostLikeDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = PostLike.objects.all()
     serializer_class = serializers.PostLikeSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self, request, *args, **kwargs):
         queryset = self.get_queryset()
@@ -122,6 +130,7 @@ class PostLikeDetailView(generics.RetrieveUpdateDestroyAPIView):
 class PostCommentLikeDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = PostCommentLike.objects.all()
     serializer_class = serializers.PostCommentLikeSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self, request, *args, **kwargs):
         queryset = self.get_queryset()

@@ -20,19 +20,24 @@ class SearchView(generics.ListAPIView):
         status = params.get('status', None)
         start_year = params.get('start-year', None)
         end_year = params.get('end-year', None)
+        inquiries_ids_related_major = list(queryset.values_list('id'))
         if major:
-            queryset = queryset.filter(major=major)
+            inquiries_ids_related_major = list(models.InquiryTagMajor.filter(body=major).values_list('inquiry'))
+            # queryset = queryset.filter(major=major)
         if country:
-            queryset = queryset.filter(country=country)
-        if status:
-            queryset = queryset.filter(status=status)
-        if start_year:
-            queryset = queryset.filter(start_year=start_year)
-        if end_year:
-            queryset = queryset.filter(end_year=end_year)
-        return queryset
+            inquiries_ids_related_country = list(models.InquiryTagCountry.filter(body=country).values_list('inquiry'))
+            # queryset = queryset.filter(country=country)
+        # if status:
+        #     queryset = queryset.filter(status=status)
+        # if start_year:
+        #     queryset = queryset.filter(start_year=start_year)
+        # if end_year:
+        #     queryset = queryset.filter(end_year=end_year)
+        inquiries = inquiries_related_major | inquiries_related_country
+        inquiry_queryset = models.Inquiry.filter(id_in=inquiries)
+        return inquiry_queryset
 
-class InquiryView(generics.ListAPIView):
+class InquiryView(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Inquiry.objects.all()
     serializer_class = serializers.InquiryViewSerializer
 
@@ -43,7 +48,7 @@ class InquiryView(generics.ListAPIView):
         if id:
             queryset = querset.filter(id=id)
         else
-            queryset = "missing Inquiry Id"
+            queryset = None
         return queryset
 
     def post(self, request, pk=None):

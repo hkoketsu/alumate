@@ -58,5 +58,9 @@ export class AuthService {
   getUser(id: number) {
     return this.http.get(`${this.baseUrl}/auth/users/${id}/`);
   }
+
+  getMe() {
+    return this.http.get(`${this.baseUrl}/auth/users/me/`);
+  }
   
 }

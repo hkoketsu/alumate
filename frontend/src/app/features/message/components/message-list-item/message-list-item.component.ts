@@ -26,15 +26,26 @@ export class MessageListItemComponent implements OnInit {
   }
 
   getName() {
-    // from basic info: sender is user ? or not ?
-    // if(this.message.sender.username == this.user.username){
-    //   return this.message.receiver.username
-    // }
-    this.authservice.getUser(this.message.sender).subscribe(
-      user => {        
-        console.log(user)
-        this.name = user.username
+    this.authservice.getMe().subscribe(
+      user => {
+        this.user = user
+        if(this.user.id == this.message.sender) {
+          this.authservice.getUser(this.message.receiver).subscribe(
+            user => {    
+              console.log(user)
+              this.name = user.username
+            }
+          );
+        } else {
+          this.authservice.getUser(this.message.sender).subscribe(
+            user => {    
+            console.log(user)
+            this.name = user.username
+            }
+          );
+        }
+
       }
-    );
+    )
   }
 }

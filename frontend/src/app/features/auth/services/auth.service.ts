@@ -54,4 +54,9 @@ export class AuthService {
   authenticate() {
     return this.tokenService.getAccessToken() !== null;
   }
+
+  getUser(id: number) {
+    return this.http.get(`${this.baseUrl}/auth/users/${id}/`);
+  }
+  
 }

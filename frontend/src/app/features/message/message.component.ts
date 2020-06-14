@@ -3,6 +3,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { MessageModalComponent } from './components/message-modal/message-modal.component';
 import { Message } from './models/message.model';
+import { MessageService } from './services/message.service';
 
 @Component({
   selector: 'app-message',
@@ -16,29 +17,39 @@ export class MessageComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    private messageservice: MessageService,
+    ) { }
 
   ngOnInit(): void {
-    this.messages = [
-      {
-        sender: null,
-        receiver: null,
-        body: 'Message description',
-        created_at: new Date()
-      },
-      {
-        sender: null,
-        receiver: null,
-        body: 'Message description',
-        created_at: new Date()
-      },
-      {
-        sender: null,
-        receiver: null,
-        body: 'Message description',
-        created_at: new Date()
-      },
-    ];
+    this.messageservice.getMessageList().subscribe(
+      messages => {
+        this.messages = messages
+        console.log(messages)
+      }
+    )
+    
+
+    // this.messages = [
+    //   {
+    //     sender: null,
+    //     receiver: null,
+    //     body: 'Message description',
+    //     created_at: new Date()
+    //   },
+    //   {
+    //     sender: null,
+    //     receiver: null,
+    //     body: 'Message description',
+    //     created_at: new Date()
+    //   },
+    //   {
+    //     sender: null,
+    //     receiver: null,
+    //     body: 'Message description',
+    //     created_at: new Date()
+    //   },
+    // ];
   }
 
   openMessageModal(): void {

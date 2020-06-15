@@ -15,7 +15,7 @@ export class MessageModalComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    public dialogRef: MatDialogRef<MessageModalComponent>) {
+    public dialogRef: MatDialogRef<MessageModalComponent>) {  
     this.form = this.fb.group({
       receiver: [''],
       body: [''],

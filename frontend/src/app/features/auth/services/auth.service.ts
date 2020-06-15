@@ -1,33 +1,24 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs/operators';
+import { tap, concatMap } from 'rxjs/operators';
 import { TokenService } from './token.service';
-
-interface JwtTokenResponse {
-  access: string;
-  refresh: string;
-}
-
-interface SignupResponse {
-  id: number;
-  username: string;
-  email: string;
-}
-
+import { User, JwtTokenResponse } from '../models/auth.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  user: User;
+
   constructor(
     private http: HttpClient,
     @Inject('BASE_API_URL') private baseUrl: string,
-    private tokenService: TokenService,
+    private tokenService: TokenService
   ) {}
 
   register(username: string, email: string, password: string) {
     console.log('sign up');
-    return this.http.post<SignupResponse>(`${this.baseUrl}/auth/users/`, {
+    return this.http.post<User>(`${this.baseUrl}/auth/users/`, {
       username,
       email,
       password,
@@ -41,10 +32,17 @@ export class AuthService {
         username,
         password,
       })
-      .pipe(tap((res) => {
-        this.tokenService.setAccessToken(res.access);
-        this.tokenService.setRefreshToken(res.refresh);
-      }));
+      .pipe(
+        tap((res) => {
+          this.tokenService.setAccessToken(res.access);
+          this.tokenService.setRefreshToken(res.refresh);
+        }),
+        concatMap(() => this.getUser()),
+        tap((res) => {
+          console.log('set user done');
+          this.user = res;
+        })
+      );
   }
 
   logout() {
@@ -55,12 +53,7 @@ export class AuthService {
     return this.tokenService.getAccessToken() !== null;
   }
 
-  getUser(id: number) {
-    return this.http.get(`${this.baseUrl}/auth/users/${id}/`);
+  getUser() {
+    return this.http.get<User>(`${this.baseUrl}/auth/users/me/`);
   }
-
-  getMe() {
-    return this.http.get(`${this.baseUrl}/auth/users/me/`);
-  }
-  
 }

@@ -24,9 +24,9 @@ export class InquiryResultSectionComponent implements OnInit {
       [
         {
           user: {
+            id: 1,
             username: 'hkoketsu',
             email: 'hiroki@email.com',
-            password: 'hiroki'
           },
           title: 'title',
           body: 'description',
@@ -34,9 +34,9 @@ export class InquiryResultSectionComponent implements OnInit {
         },
         {
           user: {
+            id: 1,
             username: 'hkoketsu',
             email: 'hiroki@email.com',
-            password: 'hiroki'
           },
           title: 'title',
           body: 'description',
@@ -46,9 +46,9 @@ export class InquiryResultSectionComponent implements OnInit {
       [
         {
           user: {
+            id: 1,
             username: 'hkoketsu',
             email: 'hiroki@email.com',
-            password: 'hiroki'
           },
           title: 'title',
           body: 'description',
@@ -56,9 +56,9 @@ export class InquiryResultSectionComponent implements OnInit {
         },
         {
           user: {
+            id: 1,
             username: 'hkoketsu',
             email: 'hiroki@email.com',
-            password: 'hiroki'
           },
           title: 'title',
           body: 'description',
@@ -68,9 +68,9 @@ export class InquiryResultSectionComponent implements OnInit {
       [
         {
           user: {
+            id: 1,
             username: 'hkoketsu',
             email: 'hiroki@email.com',
-            password: 'hiroki'
           },
           title: 'title',
           body: 'description',
@@ -78,9 +78,9 @@ export class InquiryResultSectionComponent implements OnInit {
         },
         {
           user: {
+            id: 1,
             username: 'hkoketsu',
             email: 'hiroki@email.com',
-            password: 'hiroki'
           },
           title: 'title',
           body: 'description',

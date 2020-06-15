@@ -24,15 +24,15 @@ export class InquiryDetailCommentSectionComponent implements OnInit {
     this.comments = [
       {
         user: {
+          id: 1,
           username: 'hkoketsu',
           email: 'hiroki@email.com',
-          password: 'hiroki',
         },
         inquiry: {
           user: {
+            id: 1,
             username: 'hkoketsu',
             email: 'hiroki@email.com',
-            password: 'hiroki',
           },
           title: 'title',
           body: 'description',
@@ -43,15 +43,15 @@ export class InquiryDetailCommentSectionComponent implements OnInit {
       },
       {
         user: {
+          id: 1,
           username: 'hkoketsu',
           email: 'hiroki@email.com',
-          password: 'hiroki',
         },
         inquiry: {
           user: {
+            id: 1,
             username: 'hkoketsu',
             email: 'hiroki@email.com',
-            password: 'hiroki',
           },
           title: 'title',
           body: 'description',

@@ -25,9 +25,9 @@ export class PeopleResultSectionComponent implements OnInit {
       [
         {
           user: {
+            id: 1,
             username: 'hkoketsu',
             email: 'hiroki@email.com',
-            password: 'hoge',
           },
           status: {
             value: 'CU',
@@ -43,9 +43,9 @@ export class PeopleResultSectionComponent implements OnInit {
         },
         {
           user: {
+            id: 1,
             username: 'hkoketsu',
             email: 'hiroki@email.com',
-            password: 'hoge',
           },
           status: {
             value: 'CU',
@@ -61,65 +61,9 @@ export class PeopleResultSectionComponent implements OnInit {
         },
         {
           user: {
+            id: 1,
             username: 'hkoketsu',
             email: 'hiroki@email.com',
-            password: 'hoge',
-          },
-          status: {
-            value: 'CU',
-            displayName: 'Current Student',
-          },
-          name: 'Hiroki Koketsu',
-          homeCountry: {
-            name: 'Japan',
-          },
-          studyAbroadCountry: {
-            name: 'Canada',
-          },
-        },
-      ],
-      [
-        {
-          user: {
-            username: 'hkoketsu',
-            email: 'hiroki@email.com',
-            password: 'hoge',
-          },
-          status: {
-            value: 'CU',
-            displayName: 'Current Student',
-          },
-          name: 'Hiroki Koketsu',
-          homeCountry: {
-            name: 'Japan',
-          },
-          studyAbroadCountry: {
-            name: 'Canada',
-          },
-        },
-        {
-          user: {
-            username: 'hkoketsu',
-            email: 'hiroki@email.com',
-            password: 'hoge',
-          },
-          status: {
-            value: 'CU',
-            displayName: 'Current Student',
-          },
-          name: 'Hiroki Koketsu',
-          homeCountry: {
-            name: 'Japan',
-          },
-          studyAbroadCountry: {
-            name: 'Canada',
-          },
-        },
-        {
-          user: {
-            username: 'hkoketsu',
-            email: 'hiroki@email.com',
-            password: 'hoge',
           },
           status: {
             value: 'CU',
@@ -137,9 +81,65 @@ export class PeopleResultSectionComponent implements OnInit {
       [
         {
           user: {
+            id: 1,
             username: 'hkoketsu',
             email: 'hiroki@email.com',
-            password: 'hoge',
+          },
+          status: {
+            value: 'CU',
+            displayName: 'Current Student',
+          },
+          name: 'Hiroki Koketsu',
+          homeCountry: {
+            name: 'Japan',
+          },
+          studyAbroadCountry: {
+            name: 'Canada',
+          },
+        },
+        {
+          user: {
+            id: 1,
+            username: 'hkoketsu',
+            email: 'hiroki@email.com',
+          },
+          status: {
+            value: 'CU',
+            displayName: 'Current Student',
+          },
+          name: 'Hiroki Koketsu',
+          homeCountry: {
+            name: 'Japan',
+          },
+          studyAbroadCountry: {
+            name: 'Canada',
+          },
+        },
+        {
+          user: {
+            id: 1,
+            username: 'hkoketsu',
+            email: 'hiroki@email.com',
+          },
+          status: {
+            value: 'CU',
+            displayName: 'Current Student',
+          },
+          name: 'Hiroki Koketsu',
+          homeCountry: {
+            name: 'Japan',
+          },
+          studyAbroadCountry: {
+            name: 'Canada',
+          },
+        },
+      ],
+      [
+        {
+          user: {
+            id: 1,
+            username: 'hkoketsu',
+            email: 'hiroki@email.com',
           },
           status: {
             value: 'CU',

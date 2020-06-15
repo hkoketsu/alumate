@@ -1,11 +1,8 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
+import { RefreshTokenResponse } from '../models/auth.model';
 
-
-interface RefreshTokenResponse {
-  access: string;
-}
 
 @Injectable({
   providedIn: 'root'
@@ -18,16 +15,10 @@ export class TokenService {
   ) { }
 
   refreshAccessToken() {
-    console.log(this.getAccessToken());
     return this.http
-      .post<RefreshTokenResponse>(`${this.baseUrl}/auth/jwt/refresh`, {
+      .post<RefreshTokenResponse>(`${this.baseUrl}/auth/jwt/refresh/`, {
         refresh: this.getRefreshToken(),
-      })
-      .pipe(
-        tap((res) => {
-          this.setAccessToken(res.access);
-        })
-      );
+      });
   }
 
   getAccessToken() {

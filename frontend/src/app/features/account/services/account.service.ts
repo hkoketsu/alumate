@@ -1,13 +1,22 @@
 import { CurrentStatus, Country, BasicInfo } from '../models/account.model';
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { User } from '../../auth/models/auth.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
+  apiUrl: string;
 
-  constructor() { }
+  basicInfo: BasicInfo;
+
+  constructor(
+    private http: HttpClient,
+    @Inject('BASE_API_URL') private baseUrl: string,
+  ) {
+    this.apiUrl = this.baseUrl + '/account';
+  }
 
   getProfileImageUrl(user: User) {
     if (!user) {
@@ -32,102 +41,24 @@ export class AccountService {
     ];
   }
 
-  getCountryOptions(): Country[] {
-    return [
-      {
-        name: 'Japan'
-      },
-      {
-        name: 'USA'
-      },
-      {
-        name: 'Canada'
-      }
-    ];
+  getCountries() {
+    return this.http.get<Country[]>(`${this.apiUrl}/countries`);
+  }
+
+  getCountryOptions(filterValue: string) {
+    return this.http.get<Country[]>(`${this.apiUrl}/countries?start-with=${filterValue}`);
   }
 
   getBasicInfoList(): BasicInfo[] {
     return [
       {
         user: {
+          id: 1,
           username: 'hkoketsu1',
           email: 'hiroki@email.com',
-          password: 'hoge',
         },
         status: {
           value: 'CU',
-          displayName: 'Current Student',
-        },
-        name: 'Hiroki Koketsu',
-        homeCountry: {
-          name: 'Japan',
-        },
-        studyAbroadCountry: {
-          name: 'Canada',
-        },
-      },
-      {
-        user: {
-          username: 'hkoketsu2',
-          email: 'hiroki@email.com',
-          password: 'hoge',
-        },
-        status: {
-          value: 'CU',
-          displayName: 'Current Student',
-        },
-        name: 'Hiroki Koketsu',
-        homeCountry: {
-          name: 'Japan',
-        },
-        studyAbroadCountry: {
-          name: 'Canada',
-        },
-      },
-      {
-        user: {
-          username: 'hkoketsu3',
-          email: 'hiroki@email.com',
-          password: 'hoge',
-        },
-        status: {
-          value: 'CU',
-          displayName: 'Current Student',
-        },
-        name: 'Hiroki Koketsu',
-        homeCountry: {
-          name: 'Japan',
-        },
-        studyAbroadCountry: {
-          name: 'Canada',
-        },
-      },
-      {
-        user: {
-          username: 'hkoketsu3',
-          email: 'hiroki@email.com',
-          password: 'hoge',
-        },
-        status: {
-          value: 'FU',
-          displayName: 'Current Student',
-        },
-        name: 'Hiroki Koketsu',
-        homeCountry: {
-          name: 'Japan',
-        },
-        studyAbroadCountry: {
-          name: 'Canada',
-        },
-      },
-      {
-        user: {
-          username: 'hkoketsu3',
-          email: 'hiroki@email.com',
-          password: 'hoge',
-        },
-        status: {
-          value: 'AL',
           displayName: 'Current Student',
         },
         name: 'Hiroki Koketsu',
@@ -139,5 +70,13 @@ export class AccountService {
         },
       },
     ];
+  }
+
+  sendBasicInfo(name: string, status: CurrentStatus, homeCountry: Country, studyAbroadCountry: Country) {
+    return this.http.post(`${this.apiUrl}/basic-info`, { name, status, homeCountry, studyAbroadCountry });
+  }
+
+  updateBasicInfo(name: string, status: CurrentStatus, homeCountry: Country, studyAbroadCountry: Country) {
+    return this.http.put(`${this.apiUrl}/basic-info`, { name, status, homeCountry, studyAbroadCountry });
   }
 }

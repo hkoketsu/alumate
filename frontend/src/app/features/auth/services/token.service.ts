@@ -15,16 +15,10 @@ export class TokenService {
   ) { }
 
   refreshAccessToken() {
-    console.log(this.getAccessToken());
     return this.http
-      .post<RefreshTokenResponse>(`${this.baseUrl}/auth/jwt/refresh`, {
+      .post<RefreshTokenResponse>(`${this.baseUrl}/auth/jwt/refresh/`, {
         refresh: this.getRefreshToken(),
-      })
-      .pipe(
-        tap((res) => {
-          this.setAccessToken(res.access);
-        })
-      );
+      });
   }
 
   getAccessToken() {

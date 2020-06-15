@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { User } from 'src/app/features/auth/models/auth.model';
 
@@ -20,16 +20,23 @@ export class MessageModalComponent implements OnInit {
       receiver: [''],
       body: [''],
     });
+    this.form.addControl('receiver', new FormControl('', Validators.required));
+    this.form.addControl('body', new FormControl('', Validators.required));
   }
 
   ngOnInit(): void {
   }
 
   sendMessage(): void {
-    this.dialogRef.close(this.form.value);
+    if(this.form.valid) {
+      this.dialogRef.close(this.form.value);
+    } else {
+      console.log('not valid!')
+    };
   }
 
   cancel(): void {
+    this.dialogRef.form
     this.dialogRef.close();
   }
 }

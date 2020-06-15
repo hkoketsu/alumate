@@ -32,15 +32,13 @@ export class MessageListItemComponent implements OnInit {
         if(this.user.id == this.message.sender) {
           this.authservice.getUser(this.message.receiver).subscribe(
             user => {    
-              console.log(user)
               this.name = user.username
             }
           );
         } else {
           this.authservice.getUser(this.message.sender).subscribe(
             user => {    
-            console.log(user)
-            this.name = user.username
+              this.name = user.username
             }
           );
         }

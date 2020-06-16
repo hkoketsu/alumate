@@ -26,17 +26,17 @@ export class MessageListItemComponent implements OnInit {
   }
 
   getName() {
-    this.authservice.getMe().subscribe(
+    this.authservice.getUser().subscribe(
       user => {
         this.user = user
         if(this.user.id == this.message.sender) {
-          this.authservice.getUser(this.message.receiver).subscribe(
+          this.authservice.getUserById(this.message.receiver).subscribe(
             user => {    
               this.name = user.username
             }
           );
         } else {
-          this.authservice.getUser(this.message.sender).subscribe(
+          this.authservice.getUserById(this.message.sender).subscribe(
             user => {    
               this.name = user.username
             }

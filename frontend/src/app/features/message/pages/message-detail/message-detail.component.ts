@@ -24,28 +24,28 @@ export class MessageDetailComponent implements OnInit {
     this.messages = [
       {
         sender: {
+          id: 1,
           username: 'hkoketsu',
           email: 'hiroki@email.com',
-          password: 'hiroki'
         },
         receiver: {
+          id: 1,
           username: 'hoge',
           email: 'hiroki@email.com',
-          password: 'hiroki'
         },
         body: 'Hi',
         created_at: new Date()
       },
       {
         sender: {
+          id: 1,
           username: 'hoge',
           email: 'hiroki@email.com',
-          password: 'hiroki'
         },
         receiver: {
+          id: 1,
           username: 'hkoketsu',
           email: 'hiroki@email.com',
-          password: 'hiroki'
         },
         body: 'Hello',
         created_at: new Date()

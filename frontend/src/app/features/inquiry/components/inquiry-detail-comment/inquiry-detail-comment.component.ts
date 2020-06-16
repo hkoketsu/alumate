@@ -25,9 +25,9 @@ export class InquiryDetailCommentComponent implements OnInit {
     this.profileImageUrl = this.accountService.getProfileImageUrl(null);
     this.basicInfo = {
       user: {
+        id: 1,
         username: 'hkoketsu',
         email: 'hiroki@email.com',
-        password: 'hiroki',
       },
       name: 'Hiroki Koketsu',
       status: {

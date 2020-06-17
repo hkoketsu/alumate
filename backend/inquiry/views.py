@@ -148,7 +148,7 @@ class InquiryCommentLike(generics.RetrieveUpdateAPIView):
         user = params.get('user', None)
         commentId = params.get('commentId', None)
 
-        try:
+        try :
             commentLike = models.InquiryCommentLike.objects.get(user=user, comment=commentId)
             serializer = self.serializer_class(post_like)
             return Response(serializer.data, status=status.HTTP_303_SEE_OTHER)

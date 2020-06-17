@@ -9,6 +9,8 @@ class SearchViewSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        model = models.Inquiry
+        fields = '__all__'
 
 class InquiryViewSerializer(serializers.ModelSerializer):
     user = serializers.HiddenField(
@@ -16,5 +18,32 @@ class InquiryViewSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
-        model = models.InquiryTag
-    
+        model = models.Inquiry
+        fields = '__all__'
+
+class InquiryCommentSerializer(serializers.ModelSerializer):
+    comment = serializers.HiddenField(
+        default=serializers.CurrentUserDefault()
+    )
+
+    class Meta:
+        model = models.InquiryComment
+        fields = '__all__'
+
+class InquiryLikeSerializer(serializers.ModelSerializer):
+    inquiryLike = serializers.HiddenField(
+        default=serializers.CurrentUserDefault()
+    )
+
+    class Meta:
+        model = models.InquiryCommentLike
+        fields = '__all__'
+
+class InquiryCommentLikeSerializer(serializers.ModelSerializer):
+    commentLike = serializers.HiddenField(
+        default=serializers.CurrentUserDefault()
+    )
+
+    class Meta:
+        model = models.InquiryCommentLike
+        fields = '__all__'

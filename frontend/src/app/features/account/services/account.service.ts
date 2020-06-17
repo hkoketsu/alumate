@@ -1,4 +1,4 @@
-import { CurrentStatus, Country, BasicInfo } from '../models/account.model';
+import { CurrentStatus, Country, BasicInfo, Follow } from '../models/account.model';
 import { Injectable, Inject } from '@angular/core';
 import { User } from '../../auth/models/auth.model';
 import { HttpClient } from '@angular/common/http';
@@ -78,5 +78,47 @@ export class AccountService {
 
   updateBasicInfo(name: string, status: CurrentStatus, homeCountry: Country, studyAbroadCountry: Country) {
     return this.http.put(`${this.apiUrl}/basic-info`, { name, status, homeCountry, studyAbroadCountry });
+  }
+
+  getFollowings(): Follow[] {
+    return [
+      {
+        follower: {
+          id: 1,
+          username: 'hkoketsu1',
+          email: 'hiroki@email.com',
+        },
+        following: {
+          id: 2,
+          username: 'vickas',
+          email: 'hiroki@email.com',
+        },
+      },
+      {
+        follower: {
+          id: 3,
+          username: 'shinta',
+          email: 'hiroki@email.com',
+        },
+        following: {
+          id: 4,
+          username: 'applie',
+          email: 'hiroki@email.com',
+        },
+      },
+      {
+        follower: {
+          id: 4,
+          username: 'apple',
+          email: 'hiroki@email.com',
+        },
+        following: {
+          id: 3,
+          username: 'shinta',
+          email: 'hiroki@email.com',
+        },
+      },
+    ];
+    return this.http.get<Follow>(`${this.apiUrl}/followings`);
   }
 }

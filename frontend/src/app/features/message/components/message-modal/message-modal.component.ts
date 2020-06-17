@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { User } from 'src/app/features/auth/models/auth.model';
+import { Follow } from '../../../account/models/account.model';
+import { AccountService } from '../../../account/services/account.service';
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-message-modal',
@@ -11,11 +14,15 @@ import { User } from 'src/app/features/auth/models/auth.model';
 export class MessageModalComponent implements OnInit {
   form: FormGroup;
 
-  userOptions: User[];
+  userOptions: Follow[] = [];
 
   constructor(
     private fb: FormBuilder,
-    public dialogRef: MatDialogRef<MessageModalComponent>) {  
+    public dialogRef: MatDialogRef<MessageModalComponent>,
+    private accountservice: AccountService,
+    private authservice: AuthService,
+
+    ) {  
     this.form = this.fb.group({
       receiver: [''],
       body: [''],
@@ -25,6 +32,10 @@ export class MessageModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.accountservice.getFollowings())
+        for(let f of this.accountservice.getFollowings()){
+          this.userOptions.push(f.following)
+        }
   }
 
   sendMessage(): void {

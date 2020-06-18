@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from . import serializers
 from . models import Message
+from notification.models import Notification
 from rest_framework import permissions
 import datetime
 from itertools import chain
@@ -22,7 +23,19 @@ class MessagesListView(generics.ListAPIView):
         user = self.request.user
         sender_list = Message.objects.filter(receiver=user).values_list('sender', flat=True)
         receiver_list = Message.objects.filter(sender=user).values_list('receiver', flat=True)
-
+        # Change notification for unread_messages_count to 0 if exist
+        try:
+            notification = Notification.objects.get(
+                    user=user,
+                    notification_type='unread_messages_count') 
+            notification.notification_data = 0
+        except:
+            notification = Notification.objects.create(
+                    user=user,
+                    notification_type='unread_messages_count') 
+            notification.notification_data = 0
+        notification.save()
+        
         received_message_list = []
         for sender in sender_list:
             latest_message = Message.objects.filter(sender=sender)[0]
@@ -56,9 +69,9 @@ class MessageListView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        to_user = get_object_or_404(User, pk=self.kwargs.pop('pk'))
-        received_messages = Message.objects.filter(sender=to_user, receiver=user)
-        sent_message = Message.objects.filter(sender=user, receiver=to_user)
+        other_user = get_object_or_404(User, pk=self.kwargs.pop('pk'))
+        received_messages = Message.objects.filter(sender=other_user, receiver=user)
+        sent_message = Message.objects.filter(sender=user, receiver=other_user)
         messages = sorted(chain(received_messages, sent_message), key=lambda x: x.sent_datetime)
         return messages
 
@@ -70,6 +83,19 @@ class MessageListView(generics.ListCreateAPIView):
                 sender = self.request.user,
                 receiver = other_user,
                 body = serializer.validated_data['body'],
+            )
+        #  Add/upadate notification for the message sent
+        try:
+            notification = Notification.objects.get(
+                user=other_user,
+                notification_type='unread_messages_count') 
+            notification.notification_data = str(int(notification.notification_data) + 1)
+            notification.save()
+        except:
+            notification = Notification.objects.create(
+                user=other_user,
+                notification_type='unread_messages_count',
+                notification_data = 1
             )
         serializer = serializers.MessageSerializer(instance=message)
         headers = self.get_success_headers(serializer.data)

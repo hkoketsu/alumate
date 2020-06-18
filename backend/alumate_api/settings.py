@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'message',
     'people',
     'post',
+    'notification'
 ]
 
 REST_FRAMEWORK = {

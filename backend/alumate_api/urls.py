@@ -29,4 +29,5 @@ urlpatterns = [
     path('api/account/', include('account.urls', namespace='account')),
     path('api/post/', include('post.urls', namespace='post')),
     path('api/message/', include('message.urls', namespace='message')),
+    path('api/notification/', include('notification.urls', namespace='notification')),
 ]

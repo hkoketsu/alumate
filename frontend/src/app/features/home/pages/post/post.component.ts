@@ -15,9 +15,9 @@ export class PostComponent implements OnInit {
     this.posts = [
       {
         user: {
+          id: 1,
           username: 'hkoketsu',
           email: 'hiroki@email.com',
-          password: 'hirokipass'
         },
         body: 'Hi1',
         created_at: new Date(),
@@ -25,9 +25,9 @@ export class PostComponent implements OnInit {
       },
       {
         user: {
+          id: 2,
           username: 'hkoketsu',
           email: 'hiroki@email.com',
-          password: 'hirokipass'
         },
         body: 'Hi2',
         created_at: new Date(),
@@ -35,9 +35,9 @@ export class PostComponent implements OnInit {
       },
       {
         user: {
+          id: 3,
           username: 'hkoketsu',
           email: 'hiroki@email.com',
-          password: 'hirokipass'
         },
         body: 'Hi3',
         created_at: new Date(),

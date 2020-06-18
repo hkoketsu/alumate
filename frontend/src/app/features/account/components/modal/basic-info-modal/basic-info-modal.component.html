@@ -18,29 +18,29 @@
     </mat-radio-group>
 
     <mat-form-field>
-      <mat-label>Home Country</mat-label>
-      <mat-select formControlName="homeCountry" required>
-        <mat-option>--</mat-option>
-        <mat-option *ngFor="let country of countryChoices" [value]="country">
-          {{ country.name }}
+      <input type="text" placeholder="Home Country" aria-label="homeCountry" matInput [formControl]="homeCountry"
+        [matAutocomplete]="autoHomeCountry">
+      <mat-autocomplete #autoHomeCountry="matAutocomplete">
+        <mat-option *ngFor="let option of filteredHomeCountryOptions" [value]="option.name">
+          {{ option.name }}
         </mat-option>
-      </mat-select>
+      </mat-autocomplete>
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>Study Abroad Country</mat-label>
-      <mat-select formControlName="studyAbroadCountry" required>
-        <mat-option>--</mat-option>
-        <mat-option *ngFor="let country of countryChoices" [value]="country">
-          {{ country.name }}
+      <input type="text" placeholder="Study Abroad Country" aria-label="studyAbroadCountry" matInput
+        [formControl]="studyAbroadCountry" [matAutocomplete]="autoStudyAbroadCountry">
+      <mat-autocomplete #autoStudyAbroadCountry="matAutocomplete">
+        <mat-option *ngFor="let option of filteredStudyAbroadCountryOptions" [value]="option.name">
+          {{ option.name }}
         </mat-option>
-      </mat-select>
-
+      </mat-autocomplete>
     </mat-form-field>
+
   </div>
 </mat-dialog-content>
 
 <div mat-dialog-actions class="d-flex justify-content-center mb-4">
-  <button mat-raised-button color="primary" (click)="save()">Save changes</button>
+  <button mat-raised-button color="primary" (click)="submit()">Save changes</button>
   <button mat-raised-button color="basic" (click)="cancel()">Cancel</button>
 </div>

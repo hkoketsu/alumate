@@ -6,14 +6,13 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-nav-modal',
   templateUrl: './nav-modal.component.html',
-  styleUrls: ['./nav-modal.component.css']
+  styleUrls: ['./nav-modal.component.css'],
 })
 export class NavModalComponent implements OnInit {
-
   constructor(
     public dialogRef: MatDialogRef<NavModalComponent>,
     private authService: AuthService,
-    private router: Router,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -29,5 +28,17 @@ export class NavModalComponent implements OnInit {
     console.log('log out');
     this.authService.logout();
     this.router.navigateByUrl('/');
+  }
+
+  goToAccountPage() {
+    close();
+    const user = this.authService.user;
+    if (user) {
+      this.router.navigateByUrl(`/account/${user.id}`);
+    } else {
+      this.authService
+        .getUser()
+        .subscribe((user) => this.router.navigateByUrl(`/account/${user.id}`));
+    }
   }
 }

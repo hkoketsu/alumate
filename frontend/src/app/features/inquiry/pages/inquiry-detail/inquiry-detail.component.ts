@@ -26,9 +26,9 @@ export class InquiryDetailComponent implements OnInit {
     this.logoUrl = this.getLogoUrl();
     this.basicInfo = {
       user: {
+        id: 1,
         username: 'hkoketsu',
         email: 'hiroki@email.com',
-        password: 'hiroki',
       },
       name: 'Hiroki Koketsu',
       status: {
@@ -44,9 +44,9 @@ export class InquiryDetailComponent implements OnInit {
     };
     this.inquiry = {
       user: {
+        id: 1,
         username: 'hkoketsu',
         email: 'hiroki@email.com',
-        password: 'hiroki',
       },
       title: 'title',
       body: 'description',

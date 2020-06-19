@@ -5,6 +5,7 @@ import { User } from 'src/app/features/auth/models/auth.model';
 import { Follow } from '../../../account/models/account.model';
 import { AccountService } from '../../../account/services/account.service';
 import { AuthService } from '../../../auth/services/auth.service';
+import { MessageService } from '../../services/message.service';
 
 @Component({
   selector: 'app-message-modal',
@@ -13,7 +14,8 @@ import { AuthService } from '../../../auth/services/auth.service';
 })
 export class MessageModalComponent implements OnInit {
   form: FormGroup;
-
+  user: User;
+  userId: number;
   userOptions: Follow[] = [];
 
   constructor(
@@ -21,7 +23,7 @@ export class MessageModalComponent implements OnInit {
     public dialogRef: MatDialogRef<MessageModalComponent>,
     private accountservice: AccountService,
     private authservice: AuthService,
-
+    private messageservice: MessageService,
     ) {  
     this.form = this.fb.group({
       receiver: [''],
@@ -29,17 +31,31 @@ export class MessageModalComponent implements OnInit {
     });
     this.form.addControl('receiver', new FormControl('', Validators.required));
     this.form.addControl('body', new FormControl('', Validators.required));
+    
   }
 
   ngOnInit(): void {
-    console.log(this.accountservice.getFollowings())
-        for(let f of this.accountservice.getFollowings()){
-          this.userOptions.push(f.following)
-        }
+    this.authservice.getUser().subscribe(
+      user => {
+        this.userId = user.id;
+        this.accountservice.getFollowings(this.userId).subscribe(
+          followings => {
+            for(let f of followings) {
+              const followeduser = this.authservice.getUserById(f.followed).subscribe(
+                followeduser => {
+                  this.userOptions.push(followeduser)
+                }
+              )
+            }
+          }
+        );
+      } 
+    );
   }
 
-  sendMessage(): void {
+  sendMessage(receiver:string, body:string): void {
     if(this.form.valid) {
+      this.messageservice.postMessage()
       this.dialogRef.close(this.form.value);
     } else {
       console.log('not valid!')

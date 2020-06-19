@@ -17,6 +17,12 @@ export class MessageService {
   getMessageList() {
     return this.http.get(`${this.baseUrl}/message/`)
   };
+
+  postMessage(id: number, body: string) {
+    return this.http.post(`${this.baseUrl}/message/user/${id}`, {
+      body,
+    }) 
+  };
   
   
 

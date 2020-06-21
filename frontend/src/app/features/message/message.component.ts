@@ -43,7 +43,7 @@ export class MessageComponent implements OnInit {
   }
 
   getMessages(){
-    this.messageservice.getMessageApi().subscribe(
+    this.messageservice.getMessagesList().subscribe(
       api => {
         this.messages = api
       }

@@ -18,13 +18,13 @@ export class MessageService {
     private tokenService: TokenService,
   ) { }
 
-  getMessages() {
-    return this.messages
-  }
-
-  getMessageApi(): Observable<any> {
+  getMessagesList(): Observable<any> {
     return this.http.get(`${this.baseUrl}/message/`)
   };
+
+  getMessages(id:number){
+    return this.http.get(`${this.baseUrl}/message/user/${id}`)
+  }
 
   postMessage(body:any) {
     return this.http.post<any>(`${this.baseUrl}/message/user/${body.receiver}`, body);

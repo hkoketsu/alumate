@@ -5,7 +5,6 @@ import { User } from 'src/app/features/auth/models/auth.model';
 import { AccountService } from '../../../account/services/account.service';
 import { AuthService } from '../../../auth/services/auth.service';
 import { MessageService } from '../../services/message.service';
-// import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-message-modal',
@@ -17,7 +16,6 @@ export class MessageModalComponent implements OnInit {
   user: User;
   userId: number;
   userOptions = [];
-  @Output() evnt:EventEmitter<any> = new EventEmitter();
 
 
   constructor(
@@ -60,8 +58,6 @@ export class MessageModalComponent implements OnInit {
       console.log(this.form.value.receiver)
       this.messageservice.postMessage(this.form.value).subscribe(
         d => {
-          console.log(d)
-          this.addMessage(d)
           this.dialogRef.close();
           this.messageservice.update()
         }
@@ -69,11 +65,6 @@ export class MessageModalComponent implements OnInit {
     } else {
       console.log('not valid!')
     };
-  }
-
-  addMessage(msg:any) {
-    console.log("addmessage")
-    this.evnt.emit(msg);
   }
 
   cancel(): void {

@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { User } from 'src/app/features/auth/models/auth.model';
-import { Follow } from '../../../account/models/account.model';
 import { AccountService } from '../../../account/services/account.service';
 import { AuthService } from '../../../auth/services/auth.service';
 import { MessageService } from '../../services/message.service';
+// import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-message-modal',
@@ -16,7 +16,9 @@ export class MessageModalComponent implements OnInit {
   form: FormGroup;
   user: User;
   userId: number;
-  userOptions: Follow[] = [];
+  userOptions = [];
+  @Output() evnt:EventEmitter<any> = new EventEmitter();
+
 
   constructor(
     private fb: FormBuilder,
@@ -43,7 +45,7 @@ export class MessageModalComponent implements OnInit {
             for(let f of followings) {
               const followeduser = this.authservice.getUserById(f.followed).subscribe(
                 followeduser => {
-                  this.userOptions.push(followeduser)
+                  this.userOptions.push(followeduser);
                 }
               )
             }
@@ -53,17 +55,28 @@ export class MessageModalComponent implements OnInit {
     );
   }
 
-  sendMessage(receiver:string, body:string): void {
-    if(this.form.valid) {
-      this.messageservice.postMessage()
-      this.dialogRef.close(this.form.value);
+  sendMessage(): void {
+     if(this.form.valid) {
+      console.log(this.form.value.receiver)
+      this.messageservice.postMessage(this.form.value).subscribe(
+        d => {
+          console.log(d)
+          this.addMessage(d)
+          this.dialogRef.close();
+          this.messageservice.update()
+        }
+      )
     } else {
       console.log('not valid!')
     };
   }
 
+  addMessage(msg:any) {
+    console.log("addmessage")
+    this.evnt.emit(msg);
+  }
+
   cancel(): void {
-    this.dialogRef.form
     this.dialogRef.close();
   }
 }

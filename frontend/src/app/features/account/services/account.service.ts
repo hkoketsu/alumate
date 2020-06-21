@@ -82,7 +82,7 @@ export class AccountService {
 
   getFollowings(id: number){
     console.log(id)
-    return this.http.get<Follow>(`${this.apiUrl}/followings?account=${id}`);
+    return this.http.get<any>(`${this.apiUrl}/followings?account=${id}`);
   }
 
   // getFollowings(): Follow[] {

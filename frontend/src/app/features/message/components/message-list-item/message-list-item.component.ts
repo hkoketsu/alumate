@@ -10,7 +10,7 @@ import { AuthService } from '../../../auth/services/auth.service'
   styleUrls: ['./message-list-item.component.css']
 })
 export class MessageListItemComponent implements OnInit {
-  @Input() message: Message;
+  @Input() message: any;
   name: string;
   user: User;
   profileImageUrl: string;
@@ -23,12 +23,15 @@ export class MessageListItemComponent implements OnInit {
   ngOnInit(): void {
     this.getName();
     this.profileImageUrl = this.accountService.getProfileImageUrl(null);
+    console.log(this.message)
+    
   }
 
   getName() {
     this.authservice.getUser().subscribe(
       user => {
         this.user = user
+        this.message.sender
         if(this.user.id == this.message.sender) {
           this.authservice.getUserById(this.message.receiver).subscribe(
             user => {    

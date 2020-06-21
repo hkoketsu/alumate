@@ -7,7 +7,7 @@
     <mat-label>To</mat-label>
     <mat-select formControlName="receiver" required>
       <mat-option>--</mat-option>
-      <mat-option *ngFor="let user of userOptions" [value]="user">
+      <mat-option *ngFor="let user of userOptions" [value]="user.id">
         {{ user.username }}
       </mat-option>
     </mat-select>
@@ -20,7 +20,7 @@
 </mat-dialog-content>
 
 <div mat-dialog-actions class="d-flex justify-content-center mb-4">
-  <button mat-raised-button color="primary" (click)="sendMessage()">Send Message</button>
+  <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="sendMessage()">Send Message</button>
   <button mat-raised-button color="basic" (click)="cancel()">Cancel</button>
 </div>
 

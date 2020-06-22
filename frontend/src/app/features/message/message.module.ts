@@ -7,12 +7,15 @@ import { MessageDetailComponent } from './pages/message-detail/message-detail.co
 import { MessageComponent } from './message.component';
 import { MessageRoutingModule } from './message.routing';
 import { NgModule } from '@angular/core';
+// import { DateAgoPipe } from './../../shared/modules/shared.module';
+
 
 
 @NgModule({
   imports: [
     MessageRoutingModule,
-    SharedModule
+    SharedModule,
+    // DateAgoPipe,
   ],
   declarations: [
     MessageComponent,
@@ -20,7 +23,7 @@ import { NgModule } from '@angular/core';
     MessageDetailFormComponent,
     MessageDetailSectionComponent,
     MessageListItemComponent,
-    MessageModalComponent
+    MessageModalComponent,
   ],
   exports: [
     MessageComponent,

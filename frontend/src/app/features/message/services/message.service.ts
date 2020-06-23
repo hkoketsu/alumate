@@ -26,8 +26,8 @@ export class MessageService {
     return this.http.get(`${this.baseUrl}/message/user/${id}`)
   }
 
-  postMessage(body:any) {
-    return this.http.post<any>(`${this.baseUrl}/message/user/${body.receiver}`, body);
+  postMessage(msg:any) {
+    return this.http.post<any>(`${this.baseUrl}/message/user/${msg.receiver}`, msg);
   };
 
   update(){

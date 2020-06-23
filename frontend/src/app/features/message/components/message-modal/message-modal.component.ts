@@ -21,9 +21,9 @@ export class MessageModalComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<MessageModalComponent>,
-    private accountservice: AccountService,
-    private authservice: AuthService,
-    private messageservice: MessageService,
+    private accountService: AccountService,
+    private authService: AuthService,
+    private messageService: MessageService,
     ) {  
     this.form = this.fb.group({
       receiver: [''],
@@ -35,13 +35,13 @@ export class MessageModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authservice.getUser().subscribe(
+    this.authService.getUser().subscribe(
       user => {
         this.userId = user.id;
-        this.accountservice.getFollowings(this.userId).subscribe(
+        this.accountService.getFollowings(this.userId).subscribe(
           followings => {
             for(let f of followings) {
-              const followeduser = this.authservice.getUserById(f.followed).subscribe(
+              const followeduser = this.authService.getUserById(f.followed).subscribe(
                 followeduser => {
                   this.userOptions.push(followeduser);
                 }
@@ -56,10 +56,10 @@ export class MessageModalComponent implements OnInit {
   sendMessage(): void {
      if(this.form.valid) {
       console.log(this.form.value.receiver)
-      this.messageservice.postMessage(this.form.value).subscribe(
+      this.messageService.postMessage(this.form.value).subscribe(
         d => {
           this.dialogRef.close();
-          this.messageservice.update()
+          this.messageService.update()
         }
       )
     } else {

@@ -37,12 +37,20 @@ export class MessageDetailComponent implements OnInit {
         )
       }
     )
+    
+    this.messageService.msgSubject$.subscribe(
+      msg => {
+        this.getMessages()
+      }
+    )
   }
 
   ngOnInit(): void {
-    
-
+    this.getMessages();
     this.profileImageUrl = this.accountService.getProfileImageUrl(null);
+  }
+
+  getMessages(){
     this.messageService.getMessages(this.contactUserId).subscribe(
       msg => { 
         console.log(msg)      
@@ -50,39 +58,6 @@ export class MessageDetailComponent implements OnInit {
         console.log(this.messages)
       }
     )
-    
-
-
-    // this.messages = [
-    //   {
-    //     sender: {
-    //       id: 1,
-    //       username: 'hkoketsu',
-    //       email: 'hiroki@email.com',
-    //     },
-    //     receiver: {
-    //       id: 1,
-    //       username: 'hoge',
-    //       email: 'hiroki@email.com',
-    //     },
-    //     body: 'Hi',
-    //     created_at: new Date()
-    //   },
-    //   {
-    //     sender: {
-    //       id: 1,
-    //       username: 'hoge',
-    //       email: 'hiroki@email.com',
-    //     },
-    //     receiver: {
-    //       id: 1,
-    //       username: 'hkoketsu',
-    //       email: 'hiroki@email.com',
-    //     },
-    //     body: 'Hello',
-    //     created_at: new Date()
-    //   },
-    // ]
   }
 
 }

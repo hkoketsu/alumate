@@ -18,9 +18,9 @@ export class MessageComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private dialog: MatDialog,
-    private messageservice: MessageService,
+    private messageService: MessageService,
     ) { 
-      this.messageservice.msgSubject$.subscribe(
+      this.messageService.msgSubject$.subscribe(
         msg => {
           this.getMessages()
         }
@@ -43,7 +43,7 @@ export class MessageComponent implements OnInit {
   }
 
   getMessages(){
-    this.messageservice.getMessagesList().subscribe(
+    this.messageService.getMessagesList().subscribe(
       api => {
         this.messages = api
       }

@@ -2,6 +2,7 @@ import { User } from './../../../auth/models/auth.model';
 import { Component, OnInit, Input } from '@angular/core';
 import { Message } from '../../models/message.model';
 import { AccountService } from 'src/app/features/account/services/account.service';
+import { AuthService } from '../../../auth/services/auth.service'
 
 @Component({
   selector: 'app-message-list-item',
@@ -9,22 +10,41 @@ import { AccountService } from 'src/app/features/account/services/account.servic
   styleUrls: ['./message-list-item.component.css']
 })
 export class MessageListItemComponent implements OnInit {
-  @Input() message: Message;
-  name: string;
+  @Input() message: any;
+  contactUser: User;
   user: User;
   profileImageUrl: string;
 
   constructor(
-    private accountService: AccountService
+    private accountService: AccountService,
+    private authservice: AuthService,
   ) { }
 
   ngOnInit(): void {
-    this.name = this.getName();
-    this.profileImageUrl = this.accountService.getProfileImageUrl(null);
+    this.getContactUser();
+    this.profileImageUrl = this.accountService.getProfileImageUrl(null);    
   }
 
-  getName() {
-    // from basic info: sender is user ? or not ?
-    return 'Hiroki Koketsu';
+  getContactUser() {
+    this.authservice.getUser().subscribe(
+      user => {
+        this.user = user
+        this.message.sender
+        if(this.user.id == this.message.sender) {
+          this.authservice.getUserById(this.message.receiver).subscribe(
+            user => {    
+              this.contactUser = user
+            }
+          );
+        } else {
+          this.authservice.getUserById(this.message.sender).subscribe(
+            user => {    
+              this.contactUser = user
+            }
+          );
+        }
+
+      }
+    )
   }
 }

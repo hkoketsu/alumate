@@ -1,11 +1,11 @@
 <div class="card mb-2 card-zoom" data-animation="zooming">
-  <a routerLink="/message/detail" class="list-group-item">
+  <a [routerLink]="['/message/detail', contactUser.id]" class="list-group-item">
     <div class="media">
       <img alt="Image" src="{{ profileImageUrl }}" class="avatar shadow">
       <div class="media-body ml-2">
         <div class="d-flex flex-row justify-content-between align-items-center">
           <h3 class="sender-name mb-0 text-muted">
-            {{ name }}
+            {{ contactUser.username }}
           </h3>
           <div class="d-flex flex-row">
             <small class="text-muted">{{ message.created_at }}</small>

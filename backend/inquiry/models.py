@@ -50,7 +50,7 @@ class InquiryTagSchool(InquiryTag):
     body = models.ForeignKey(School, on_delete=models.CASCADE, related_name='Inquiry_school')
 
 class InquiryTagMajor(InquiryTag):
-    body =  models.ForeignKey(Major, on_delete=models.CASCADE, related_name='Inquiry_school')
+    body =  models.ForeignKey(Major, on_delete=models.CASCADE, related_name='Inquiry_major')
 
 # class InquiryTagHomeCountry(models.Model):
 #     living_city = models.ForeignKey('City', on_delete=models.SET_NULL, null=True, blank=True)

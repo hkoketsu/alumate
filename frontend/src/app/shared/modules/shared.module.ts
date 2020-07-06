@@ -24,6 +24,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { Ng5SliderModule } from 'ng5-slider';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { DateAgoPipe } from '../pipes/date-ago.pipe';
+
 
 
 @NgModule({
@@ -53,6 +55,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NavModalComponent,
     SearchModalComponent,
     SearchSectionComponent,
+    DateAgoPipe,
   ],
   exports: [
     AccountSummarySectionComponent,
@@ -77,7 +80,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     Ng5SliderModule,
     NgbModule,
     FontAwesomeModule,
-    RouterModule
+    RouterModule,
+    DateAgoPipe,
   ]
 })
 export class SharedModule {

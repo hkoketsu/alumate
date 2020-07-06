@@ -6,7 +6,7 @@ import { AuthGuard } from 'src/app/core/guards/auth.guard';
 
 const routes: Routes = [
   { path: 'message', canActivate: [AuthGuard], children: [
-    { path: 'detail', component: MessageDetailComponent },
+    { path: 'detail/:id', component: MessageDetailComponent },
     { path: '', component: MessageComponent },
   ]}
 ];

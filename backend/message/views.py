@@ -28,13 +28,13 @@ class MessagesListView(generics.ListAPIView):
             notification = Notification.objects.get(
                     user=user,
                     notification_type='unread_messages_count') 
-            notification.notification_data = 0
+            notification.notification_data = '0'
+            notification.save()
         except:
             notification = Notification.objects.create(
                     user=user,
                     notification_type='unread_messages_count',
-                    notification_data = 0) 
-        
+                    notification_data = '0') 
         received_message_list = []
         for sender in sender_list:
             latest_message = Message.objects.filter(sender=sender)[0]

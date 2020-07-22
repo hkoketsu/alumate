@@ -11,6 +11,7 @@ import datetime
 from itertools import chain
 from django.contrib.auth import get_user_model
 from rest_framework import permissions
+from django.core.mail import send_mail
 # Create your views here.
 User = get_user_model()
 
@@ -83,7 +84,15 @@ class MessageListView(generics.ListCreateAPIView):
                 receiver = other_user,
                 body = serializer.validated_data['body'],
             )
-        #  Add/upadate notification for the message sent
+        # Send an email to the other user
+        # send_mail(
+        #     'Message from  Alumate user',
+        #      message.body,
+        #      'vikassrinitb@gmail.com',
+        #      ['akash.iet.ec@gmail.com'],
+        #      fail_silently=False,
+        # )
+            #  Add/upadate notification for the message sent
         try:
             notification = Notification.objects.get(
                 user=other_user,

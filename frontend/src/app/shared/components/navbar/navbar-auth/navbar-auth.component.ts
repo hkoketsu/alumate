@@ -1,10 +1,9 @@
 import { AuthService } from './../../../../features/auth/services/auth.service';
 import { NavModalComponent } from './../nav-modal/nav-modal.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NotificationService } from '../../../services/notification.service'
-import { timer } from 'rxjs';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 
 @Component({
   selector: 'app-navbar-auth',
@@ -12,8 +11,8 @@ import { timer } from 'rxjs';
   styleUrls: ['./navbar-auth.component.css'],
 })
 export class NavbarAuthComponent implements OnInit{
-  unread_messages_count: Number;
-  id;
+  unreadMsgCount: Number;
+  initial; afterInitial;
 
   constructor(
     private dialog: MatDialog,
@@ -21,25 +20,16 @@ export class NavbarAuthComponent implements OnInit{
     private router: Router,
     private notifications: NotificationService
   ) {}
-  
+
   ngOnInit() {
-      // setInterval(() => {
-      //   this.getNotifications(); 
-      // }, 10000);
-      this.getNotifications();
-    }
+    this.getNotifications();
+  }
 
-    getNotifications() {
-      this.notifications.getNotifications().subscribe(
-        nof => this.unread_messages_count = nof[0].notification_data ? +nof[0].notification_data: 0
-      )
-    }
-
-    // ngOnDestroy() {
-    //   if (this.id) {
-    //     clearInterval(this.id);
-    //   }
-    // }
+  getNotifications() {
+    this.notifications.getNotifications().subscribe(
+      nof => this.unreadMsgCount = nof[0].notification_data ? +nof[0].notification_data: 0
+    )
+  }
 
   openNavModal(): void {
     const dialogConfig: MatDialogConfig = {

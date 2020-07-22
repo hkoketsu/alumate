@@ -7,7 +7,6 @@ import { ajax } from 'rxjs/ajax';
   providedIn: 'root'
 })
 export class NotificationService {
-    unread_messages_count : Number;
 
     constructor(
         private http: HttpClient,

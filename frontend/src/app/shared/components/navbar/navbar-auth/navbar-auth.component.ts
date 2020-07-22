@@ -3,6 +3,7 @@ import { NavModalComponent } from './../nav-modal/nav-modal.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 
 @Component({
   selector: 'app-navbar-auth',
@@ -10,13 +11,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar-auth.component.css'],
 })
 export class NavbarAuthComponent implements OnInit {
+  unreadMsgCount: Number;
+
   constructor(
     private dialog: MatDialog,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private notifications: NotificationService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.getNotifications();
+  }
+
+  getNotifications() {
+    this.notifications.getNotifications().subscribe(
+      nof => this.unreadMsgCount = nof[0].notification_data ? +nof[0].notification_data: 0
+    )
+  }
 
   openNavModal(): void {
     const dialogConfig: MatDialogConfig = {

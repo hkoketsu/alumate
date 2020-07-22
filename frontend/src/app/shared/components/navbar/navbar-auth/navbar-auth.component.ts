@@ -1,35 +1,22 @@
 import { AuthService } from './../../../../features/auth/services/auth.service';
 import { NavModalComponent } from './../nav-modal/nav-modal.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NotificationService } from 'src/app/shared/services/notification.service';
 
 @Component({
   selector: 'app-navbar-auth',
   templateUrl: './navbar-auth.component.html',
   styleUrls: ['./navbar-auth.component.css'],
 })
-export class NavbarAuthComponent implements OnInit{
-  unreadMsgCount: Number;
-  initial; afterInitial;
-
+export class NavbarAuthComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private authService: AuthService,
-    private router: Router,
-    private notifications: NotificationService
+    private router: Router
   ) {}
 
-  ngOnInit() {
-    this.getNotifications();
-  }
-
-  getNotifications() {
-    this.notifications.getNotifications().subscribe(
-      nof => this.unreadMsgCount = nof[0].notification_data ? +nof[0].notification_data: 0
-    )
-  }
+  ngOnInit(): void {}
 
   openNavModal(): void {
     const dialogConfig: MatDialogConfig = {
